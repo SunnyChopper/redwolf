@@ -6,6 +6,9 @@ use Auth;
 
 use App\User;
 
+use App\Custom\ClientHelper;
+use App\Custom\InvoiceHelper;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -69,6 +72,58 @@ class AdminController extends Controller
         $this->protect();
 
         return view('admin.dashboard')->with('page_title', $page_title)->with('page_header', $page_header);
+    }
+
+    public function view_clients() {
+        // Dynamic page elements
+        $page_title = "Clients";
+        $page_header = $page_title;
+
+        // Protect admin backend
+        $this->protect();
+
+        // Get clients
+        $client_helper = new ClientHelper();
+        $clients = $client_helper->get_all_clients();
+
+        return view('admin.clients.view')->with('page_title', $page_title)->with('page_header', $page_header)->with('clients', $clients);
+    }
+
+    public function new_client() {
+        // Dynamic page elements
+        $page_title = "New Client";
+        $page_header = $page_title;
+
+        // Protect admin backend
+        $this->protect();
+
+        return view('admin.clients.new')->with('page_title', $page_title)->with('page_header', $page_header);
+    }
+
+    public function view_invoices() {
+        // Dynamic page elements
+        $page_title = "Invoices";
+        $page_header = $page_title;
+
+        // Protect admin backend
+        $this->protect();
+
+        return view('admin.invoices.view')->with('page_title', $page_title)->with('page_header', $page_header);
+    }
+
+    public function new_invoice() {
+        // Dynamic page elements
+        $page_title = "New Invoice";
+        $page_header = $page_title;
+
+        // Protect admin backend
+        $this->protect();
+
+        // Get clients
+        $client_helper = new ClientHelper();
+        $clients = $client_helper->get_all_clients();
+
+        return view('admin.invoices.new')->with('page_title', $page_title)->with('page_header', $page_header)->with('clients', $clients);
     }
 
     /* Private functions */
