@@ -16,6 +16,8 @@ Route::get('/', 'PagesController@index');
 
 // Admin site
 Route::get('/admin', 'AdminController@login');
+Route::get('/admin/dashboard', 'AdminController@dashboard');
+
 Route::post('/admin/login', 'AdminController@user_login');
 
 Auth::routes();
