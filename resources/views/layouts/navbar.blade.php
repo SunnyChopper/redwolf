@@ -3,7 +3,7 @@
 	<nav class="navbar navbar-expand-lg navbar-light">
 		<div class="container">
 			  <a class="navbar-brand" href="index.html">
-			  	<img src="{{ URL::asset('img/logo.png') }}" alt="">
+			  	<img src="{{ URL::asset('img/logo.png') }}" class="site-logo" alt="">
 			  </a>
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_menu" aria-controls="navbar_menu" aria-expanded="false" aria-label="Toggle navigation">
 			    <span class="navbar-toggler-icon"></span>

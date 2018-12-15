@@ -3,19 +3,17 @@
 		<div class="row">
 			<div class="col-lg-3  col-md-12">
 				<div class="single-footer-widget">
-					<h6>Top Products</h6>
+					<h6>Helpful Links</h6>
 					<ul class="footer-nav">
-						<li><a href="#">Managed Website</a></li>
-						<li><a href="#">Manage Reputation</a></li>
-						<li><a href="#">Power Tools</a></li>
-						<li><a href="#">Marketing Service</a></li>
+						<li><a href="/mission">Our Mission</a></li>
+						<li><a href="/services">Services</a></li>
 					</ul>
 				</div>
 			</div>
 			<div class="col-lg-6  col-md-12">
 				<div class="single-footer-widget newsletter">
 					<h6>Newsletter</h6>
-					<p>You can trust us. we only send promo offers, not a single spam.</p>
+					<p>Get exclusive content, updates, and more delivered directly to your inbox.</p>
 					<div id="mc_embed_signup">
 						<form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
 
@@ -37,18 +35,8 @@
 				</div>
 			</div>
 			<div class="col-lg-3  col-md-12">
-				<div class="single-footer-widget mail-chimp">
-					<h6 class="mb-20">Instragram Feed</h6>
-					<ul class="instafeed d-flex flex-wrap">
-						<li><img src="img/i1.jpg" alt=""></li>
-						<li><img src="img/i2.jpg" alt=""></li>
-						<li><img src="img/i3.jpg" alt=""></li>
-						<li><img src="img/i4.jpg" alt=""></li>
-						<li><img src="img/i5.jpg" alt=""></li>
-						<li><img src="img/i6.jpg" alt=""></li>
-						<li><img src="img/i7.jpg" alt=""></li>
-						<li><img src="img/i8.jpg" alt=""></li>
-					</ul>
+				<div class="single-footer-widget">
+					<img src="https://redwolfent.com/wp-content/uploads/2018/06/veteran-owned-logo-1.png" class="regular-image">
 				</div>
 			</div>						
 		</div>

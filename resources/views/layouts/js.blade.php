@@ -8,3 +8,4 @@
 <script src="{{ URL::asset('js/jquery.DonutWidget.min.js') }}"></script>
 <script src="{{ URL::asset('js/jquery.magnific-popup.min.js') }}"></script>			
 <script src="{{ URL::asset('js/main.js') }}"></script>
+<script src="{{ URL::asset('js/app.js') }}"></script>

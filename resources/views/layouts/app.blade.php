@@ -16,7 +16,11 @@
 		<!-- Site Title -->
 		<title>{{ $page_title }} - Red Wolf</title>
 
-		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+		<!-- Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+
+		<!-- CSS Links -->
 		<link rel="stylesheet" href="{{ URL::asset('css/linearicons.css') }}">
 		<link rel="stylesheet" href="{{ URL::asset('css/font-awesome.min.css') }}">
 		<link rel="stylesheet" href="{{ URL::asset('css/jquery.DonutWidget.min.css') }}">
