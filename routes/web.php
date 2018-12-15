@@ -11,4 +11,8 @@
 |
 */
 
+// Public site
 Route::get('/', 'PagesController@index');
+
+// Admin site
+Route::get('/admin', 'AdminController@login');

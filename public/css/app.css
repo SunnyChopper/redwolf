@@ -27,6 +27,11 @@ p {
 .primary-btn {
 	background-image: none;
 	background-color: #db1529;
+	padding-right: 30px;
+}
+
+.generic-banner {
+	background-image: -webkit-linear-gradient(0deg, #db1529 0%, #ad434e 100%);
 }
 
 .footer-text a, .footer-text i {
@@ -45,6 +50,14 @@ p {
 
 .navbar-nav a:hover{
 	color: #db1529;
+}
+
+.generic-banner .height {
+	height: 150px;
+}
+
+.sticky-wrapper {
+	height: 78px !important;
 }
 
 @media only screen and (max-width: 575px) {
@@ -405,6 +418,12 @@ p {
 /* ------------------------ *\
 	Special Divs
 \* ------------------------ */
+
+.grey-box {
+	background: #F0F0F0;
+	padding: 24px;
+	border-radius: 8px;
+}
 
 .testimonial-card > h4, h5 {
 	font-family: 'Roboto', 'Poppins', sans-serif;

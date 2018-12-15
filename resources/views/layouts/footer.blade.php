@@ -26,7 +26,7 @@
 								</div> 
 							
 								<div class="col-lg-4 col-md-12">
-									<button class="nw-btn primary-btn">Subscribe<span class="lnr lnr-arrow-right"></span></button>
+									<button class="nw-btn primary-btn">Subscribe</button>
 								</div> 
 							</div>		
 							<div class="info"></div>
