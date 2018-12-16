@@ -14,7 +14,11 @@
 		<!-- meta character set -->
 		<meta charset="UTF-8">
 		<!-- Site Title -->
-		<title>{{ $page_title }} - Red Wolf</title>
+		@if(isset($page_title))
+			<title>{{ $page_title }} - Red Wolf</title>
+		@else
+			<title>Red Wolf</title>
+		@endif
 
 		<!-- Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
