@@ -1,5 +1,4 @@
 <div style="padding: 24px;">
-	<img src="{{ URL::asset('img/logo.png') }}" style="background-color: black; display: block; width: 50%; margin-left: auto; margin-right: auto;">
 	<h1 style="margin-top: 32px;">Invoice Created</h1>
 	<p>Hey {{ $email_data["recipient_first_name"] }},</p>
 	<p>The Red Wolf team has created an invoice for the services requested. Click below to view and pay.</p>
