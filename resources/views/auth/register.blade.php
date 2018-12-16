@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <?php $page_header = "Register"; ?>
     @include('layouts.banner')
     <div class="container mt-32 mb-32">
         <div class="row justify-content-center">
