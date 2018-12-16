@@ -11,6 +11,9 @@
 |
 */
 
+// Debugging
+Route::get('/test', 'PagesController@test');
+
 // Public site
 Route::get('/', 'PagesController@index');
 Route::get('/invoices/{invoice_id}', 'PagesController@show_invoice');

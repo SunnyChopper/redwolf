@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Custom\ClientHelper;
 use App\Custom\InvoiceHelper;
+use App\Custom\MailHelper;
 
 use Illuminate\Http\Request;
 
@@ -37,5 +38,20 @@ class PagesController extends Controller
     	$page_header = $page_title;
 
     	return view('pages.thank-you')->with('page_title', $page_title)->with('page_header', $page_header);
+    }
+
+    public function test() {
+        $mail_data = array(
+            "sender_first_name" => "Red",
+            "sender_last_name" => "Wolf",
+            "sender_email" => env('MAIL_USERNAME'),
+            "recipient_first_name" => "Sunny",
+            "recipient_last_name" => "Singh",
+            "recipient_email" => "ishy.singh@gmail.com",
+            "subject" => "Test Email"
+        );
+
+        $mail_helper = new MailHelper($mail_data);
+        $mail_helper->send_new_invoice_email("https://www.google.com");
     }
 }
