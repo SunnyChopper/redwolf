@@ -24,4 +24,22 @@ class ClientsController extends Controller
     	// Redirect
     	return redirect(url('/admin/clients/view'));
     }
+
+    public function update(Request $data) {
+        // Get data
+        $client_data = array(
+            "client_id" => $data->client_id,
+            "company_name" => $data->company_name,
+            "email" => $data->email,
+            "first_name" => $data->first_name,
+            "last_name" => $data->last_name
+        );
+
+        // Update client
+        $client_helper = new ClientHelper();
+        $client_id = $client_helper->update($client_data);
+
+        // Redirect
+        return redirect(url('/admin/clients/view'));
+    }
 }

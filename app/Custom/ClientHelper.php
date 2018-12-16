@@ -31,7 +31,11 @@ class ClientHelper {
 		return $client->id;
 	}
 
-	public function read($id) {
+	public function read($id = 0) {
+		if ($id == 0) {
+			$id = $this->id;
+		}
+
 		return Client::find($id);
 	}
 
@@ -58,6 +62,42 @@ class ClientHelper {
 	public function get_all_clients() {
 		// TODO: Update with `is_active` field
 		return Client::all();
+	}
+
+	public function set_id($id) {
+		$this->id = $id;
+	}
+
+	public function get_company_name($id = 0) {
+		if ($id == 0) {
+			$id = $this->id;
+		}
+
+		return Client::find($id)->company_name;
+	}
+
+	public function get_first_name($id = 0) {
+		if ($id == 0) {
+			$id = $this->id;
+		}
+
+		return Client::find($id)->first_name;
+	}
+
+	public function get_last_name($id = 0) {
+		if ($id == 0) {
+			$id = $this->id;
+		}
+
+		return Client::find($id)->last_name;
+	}
+
+	public function get_email($id = 0) {
+		if ($id == 0) {
+			$id = $this->id;
+		}
+
+		return Client::find($id)->email;
 	}
 }
 

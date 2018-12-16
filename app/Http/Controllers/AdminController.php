@@ -89,6 +89,21 @@ class AdminController extends Controller
         return view('admin.clients.view')->with('page_title', $page_title)->with('page_header', $page_header)->with('clients', $clients);
     }
 
+    public function edit_client($client_id) {
+        // Dynamic page elements
+        $page_title = "Edit Client";
+        $page_header = $page_title;
+
+        // Protect admin backend
+        $this->protect();
+
+        // Get invoices
+        $client_helper = new ClientHelper($client_id);
+        $client = $client_helper->read();
+
+        return view('admin.clients.edit')->with('page_title', $page_title)->with('page_header', $page_header)->with('client', $client);
+    }
+
     public function new_client() {
         // Dynamic page elements
         $page_title = "New Client";
@@ -108,7 +123,32 @@ class AdminController extends Controller
         // Protect admin backend
         $this->protect();
 
-        return view('admin.invoices.view')->with('page_title', $page_title)->with('page_header', $page_header);
+        // Get invoices
+        $invoice_helper = new InvoiceHelper();
+        $invoices = $invoice_helper->get_all_invoices();
+
+        // Client helper for page
+        $client_helper = new ClientHelper();
+
+        return view('admin.invoices.view')->with('page_title', $page_title)->with('page_header', $page_header)->with('invoices', $invoices)->with('client_helper', $client_helper);
+    }
+
+    public function edit_invoice($invoice_id) {
+        // Dynamic page elements
+        $page_title = "Edit Invoice";
+        $page_header = $page_title;
+
+        // Protect admin backend
+        $this->protect();
+
+        // Get invoices
+        $invoice_helper = new InvoiceHelper($invoice_id);
+        $invoice = $invoice_helper->read();
+
+        // Client helper for page
+        $client_helper = new ClientHelper($invoice->client_id);
+
+        return view('admin.invoices.edit')->with('page_title', $page_title)->with('page_header', $page_header)->with('invoice', $invoice)->with('client_helper', $client_helper);
     }
 
     public function new_invoice() {

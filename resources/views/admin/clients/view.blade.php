@@ -5,35 +5,45 @@
 
 	<div class="container pt-32 pb-32">
 		<div class="row">
-			<div class="col-lg-10 mx-lg-auto col-md-10 mx-md-auto col-sm-12 col-12">
-				<div style="overflow: auto;">
-					<table class="table table-striped">
-						<thead>
-							<tr>
-								<th>Company</th>
-								<th>First Name</th>
-								<th>Last Name</th>
-								<th>Email</th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-							@foreach($clients as $client)
+			@if(count($clients) > 0)
+				<div class="col-lg-10 mx-lg-auto col-md-10 mx-md-auto col-sm-12 col-12">
+					<div style="overflow: auto;">
+						<table class="table table-striped">
+							<thead>
 								<tr>
-									<td>{{ $client->company_name }}</td>
-									<td>{{ $client->first_name }}</td>
-									<td>{{ $client->last_name }}</td>
-									<td>{{ $client->email }}</td>
-									<td>
-										<a href="/admin/clients/edit/{{ $client->id }}" class="genric-btn small primary">Edit</a>
-										<button type="button" class="genric-btn small danger" id="{{ $client->id }}">Delete</button>
-									</td>
+									<th>Company</th>
+									<th>First Name</th>
+									<th>Last Name</th>
+									<th>Email</th>
+									<th></th>
 								</tr>
-							@endforeach
-						</tbody>
-					</table>
+							</thead>
+							<tbody>
+								@foreach($clients as $client)
+									<tr>
+										<td>{{ $client->company_name }}</td>
+										<td>{{ $client->first_name }}</td>
+										<td>{{ $client->last_name }}</td>
+										<td>{{ $client->email }}</td>
+										<td style="float: right;">
+											<a href="/admin/clients/edit/{{ $client->id }}" class="genric-btn small primary">Edit</a>
+											<button type="button" class="genric-btn small danger" id="{{ $client->id }}">Delete</button>
+										</td>
+									</tr>
+								@endforeach
+							</tbody>
+						</table>
+					</div>
 				</div>
-			</div>
+			@else
+				<div class="col-lg-8 mx-lg-auto col-md-8 mx-md-auto col-sm-12 col-12">
+					<div class="grey-box">
+						<h3 class="text-center">No Clients</h3>
+						<p class="text-center">There are no clients in the system right now. Click below to get started on creating the first one.</p>
+						<a href="/admin/clients/new" class="primary-btn center-button">Create New Client</a>
+					</div>
+				</div>
+			@endif
 		</div>
 	</div>
 @endsection
