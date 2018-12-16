@@ -24,7 +24,7 @@ class InvoicesController extends Controller
     	$invoice_id = $invoice_helper->create($invoice_data);
 
         // Get client data
-        $client_helper = new ClientHelper($invoice->client_id);
+        $client_helper = new ClientHelper($data->client_id);
 
         // Send out email to client to notify
         $mail_data = array(
