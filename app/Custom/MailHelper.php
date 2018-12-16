@@ -91,7 +91,7 @@ class MailHelper {
 		Mail::send('emails.luis-notification-email', ['email_data' => $email_data, "company_name" => $company_name, "amount" => $amount], function($message) use ($email_data) {
 			$message->to("luis@redwolfent.com", "Luis Garcia")->subject("💵 Red Wolf - Invoice Paid 💵");
 			$message->from(env('MAIL_USERNAME'), "Red Wolf");
-			$message->cc("ishy.singh@gmail.com", "Sunny Singh");
+			$message->cc("sunny@redwolfent.com", "Sunny Singh");
 		});
 	}
 
