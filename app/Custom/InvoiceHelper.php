@@ -32,7 +32,7 @@ class InvoiceHelper {
 		// Create invoice
 		$invoice = new Invoice;
 		$invoice->client_id = $client_id;
-		$invoice->amount = $amount;
+		$invoice->amount = doubleval($amount);
 		$invoice->status = $status;
 		$invoice->due_date = $due_date;
 		$invoice->save();
