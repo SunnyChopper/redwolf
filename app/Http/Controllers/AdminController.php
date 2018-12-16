@@ -25,6 +25,7 @@ class AdminController extends Controller
         if ($redirect_code == 0) {
             return redirect(url('/members/dashboard'));
         } elseif ($redirect_code == 1) {
+            $this->login_user();
             return redirect(url('/admin/dashboard'));
         }
 
