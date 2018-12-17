@@ -49,6 +49,58 @@ class PagesController extends Controller
         return view('pages.contact')->with('page_title', $page_title)->with('page_header', $page_header);
     }
 
+    public function submit_contact(Request $data) {
+        // Get data
+        $first_name = $data->first_name;
+        $last_name = $data->last_name;
+        $email = $data->email;
+        $phone = $data->phone;
+        $project_description = $data->project_description;
+        $services = $data->service;
+        $urgency = $data->urgency;
+        $due_date = $data->due_date;
+
+        // Create body
+        $body = "<h2>Contact Form Submission</h2>";
+        $body .= "<p><b>First Name: </b>" . $first_name . "</p>";
+        $body .= "<p><b>Last Name: </b>" . $last_name . "</p>";
+        $body .= "<p><b>Email: </b>" . $email . "</p>";
+        if ($phone != "") {
+            $body .= "<p><b>Phone: </b>" . $phone . "</p>";
+        }
+        $body .= "<p><b>Description: </b>" . $project_description . "</p>";
+        if (!empty($services)) {
+            $body .= "<p><b>Services:</b></p>";
+            $body .= "<ul>";
+            foreach ($services as $service) {
+                $body .= "<li>" . $service . "</li>";
+            }
+            $body .= "</ul>";
+        }
+        $body .= "<p><b>Urgency: </b>" . $urgency . "</p>";
+        if ($due_date != "mm/dd/yyyy" && $due_date != "") {
+            $body .= "<p><b>Due Date: </b>" . $due_date . "</p>";
+        }
+
+        // Create mail data
+        $mail_data = array(
+            "sender_first_name" => "Red",
+            "sender_last_name" => "Wolf",
+            "sender_email" => env('MAIL_USERNAME'),
+            "recipient_first_name" => "Red",
+            "recipient_last_name" => "Wolf",
+            "recipient_email" => env('MAIL_USERNAME'),
+            "subject" => "🚨 Contact Form Submission - Red Wolf 🚨",
+            "body" => $body
+        );
+
+        // Mail helper
+        $mail_helper = new MailHelper($mail_data);
+        $mail_helper->send_contact_email();
+
+        return redirect()->back()->with('success', 'Successfully submitted.');
+    }
+
     public function show_invoice($invoice_id) {
     	// Get invoice
     	$invoice_helper = new InvoiceHelper($invoice_id);

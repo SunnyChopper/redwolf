@@ -72,10 +72,12 @@ class MailHelper {
 	/* Public functions */
 	public function send_contact_email() {
 		$email_data = $this->get_email_data();
-		Mail::send('emails.contact-email', $email_data, function($message) use ($email_data) {
-			$message->to("luis@redwolfent.com", "Red Wolf")->subject($email_data["subject"]);
-			$message->from(env('MAIL_USERNAME'), "Red Wolf");
+		Mail::send('emails.contact-email', ['email_data' => $email_data], function($message) use ($email_data) {
+			$message->to($email_data["recipient_email"], $email_data["recipient_first_name"] . " " . $email_data["recipient_last_name"])->subject($email_data["subject"]);
+			$message->from($email_data["sender_email"], $email_data["sender_first_name"] . " " . $email_data["sender_last_name"]);
 			$message->replyTo($email_data["sender_email"], $email_data["sender_first_name"] . " " . $email_data["sender_last_name"]);
+			$message->cc("luis@redwolfent.com", "Luis Garcia");
+			$message->cc("sunny@redwolfent.com", "Sunny Singh");
 		});
 	}
 

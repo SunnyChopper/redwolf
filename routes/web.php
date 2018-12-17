@@ -21,6 +21,7 @@ Route::get('/mission', 'PagesController@mission');
 Route::get('/services', 'PagesController@services');
 Route::get('/portfolio', 'PagesController@portfolio');
 Route::get('/contact', 'PagesController@contact');
+Route::post('/contact/submit', 'PagesController@submit_contact');
 Route::get('/thank-you', 'PagesController@thank_you');
 
 // Admin site
