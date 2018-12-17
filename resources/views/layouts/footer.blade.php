@@ -36,7 +36,7 @@
 			</div>
 			<div class="col-lg-3  col-md-12">
 				<div class="single-footer-widget">
-					<img src="https://redwolfent.com/wp-content/uploads/2018/06/veteran-owned-logo-1.png" class="regular-image">
+					<img src="http://providence-construction.com/wp-content/uploads/2018/11/veteran-owned-business-png-1-copy.png" class="regular-image">
 				</div>
 			</div>						
 		</div>

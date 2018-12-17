@@ -329,7 +329,7 @@ p {
 }
 
 .city-background-row {
-	background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.5)), url("https://redwolfent.com/wp-content/uploads/2018/10/BG-2.jpg");
+	background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.5)), url("../img/la_background.jpg");
 	background-size: cover;
 	padding: 32px;
 }

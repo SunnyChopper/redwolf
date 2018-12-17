@@ -82,7 +82,7 @@
 					<div class="carousel-inner">
 						<div class="carousel-item active">
 							<div class="testimonial-card">
-								<img src="https://redwolfent.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-15-at-9.25.09-PM.png" class="center-button">
+								<img src="{{ URL::asset('img/testimonial-1.jpg') }}" class="center-button">
 								<p class="text-center white mt-16">With just one consultation session with Luis Garcia from Red Wolf Entertainment in regards to our live show strategy here at Infusionsoft, we were able to take our live show strategy from one per quarter to two a week. Why? Content is king. We took it back to his strategy of content. Now we give people valuable advice on marketing tips and tricks because of that one session. Now, our live shows are the #1 traffic sender to the website. So, it was an amazing strategy, and it was amazing advice.</p>
 								<h4 class="text-center white mt-16">Natalie Ferreyra</h4>
 								<h5 class="text-center red mb-16">Digital Strategist at InfusionSoft</h5>		
@@ -91,7 +91,7 @@
 
 						<div class="carousel-item">
 							<div class="testimonial-card">
-								<img src="https://redwolfent.com/wp-content/uploads/2018/11/PLAY-ASHLEY.jpg" class="center-button">
+								<img src="{{ URL::asset('img/testimonial-2.jpg') }}" class="center-button">
 								<p class="text-center white mt-16">Red Wolf has taken my brand and helped me obtain thousands of followers that have essentially, in the long-run, grown my business. I’ve had Red Wolf produce many of my events as well, including my Tedx event, and they’ve done such a great job growing my business very organically. I’m extremely happy with their work!</p>
 								<h4 class="text-center white mt-16">Ashley Zahabian</h4>
 								<h5 class="text-center red mb-16">Lecturer in emotional intelligence, Research Assistant at Columbia University</h5>		
@@ -100,7 +100,7 @@
 
 						<div class="carousel-item">
 							<div class="testimonial-card">
-								<img src="https://redwolfent.com/wp-content/uploads/2018/10/Image-from-iOS.jpg" class="center-button">
+								<img src="{{ URL::asset('img/testimonial-3.jpg') }}" class="center-button">
 								<p class="text-center white mt-16">Luis was very helpful in accelerating audience growth on behalf of our clients. Whenever we were getting set to run influencer marketing campaigns to drive awareness and engagement amongst aspiring entrepreneurs, Luis was one of the first guys we’d call. Thanks Luis!</p>
 								<h4 class="text-center white mt-16">Sam Hysell</h4>
 								<h5 class="text-center red mb-16">Brand Strategist, VaynerTalent</h5>		
