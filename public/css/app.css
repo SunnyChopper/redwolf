@@ -504,6 +504,8 @@ p {
 .image-box {
 	border-radius: 8px;
 	background-color: white;
+	margin-top: 16px;
+	margin-bottom: 16px;
 }
 
 .image-box > .image-box-image {

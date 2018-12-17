@@ -33,6 +33,14 @@ class PagesController extends Controller
         return view('pages.services')->with('page_title', $page_title)->with('page_header', $page_header);
     }
 
+    public function portfolio() {
+        // Dynamic page elements
+        $page_title = "Portfolio";
+        $page_header = $page_title;
+
+        return view('pages.portfolio')->with('page_title', $page_title)->with('page_header', $page_header);
+    }
+
     public function show_invoice($invoice_id) {
     	// Get invoice
     	$invoice_helper = new InvoiceHelper($invoice_id);
