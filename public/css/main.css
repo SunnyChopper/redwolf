@@ -8,12 +8,12 @@
 /* =================================== */
 ::-moz-selection {
   /* Code for Firefox */
-  background-color: #8490ff;
+  background-color: #db1529;
   color: #fff;
 }
 
 ::selection {
-  background-color: #8490ff;
+  background-color: #db1529;
   color: #fff;
 }
 
@@ -2730,8 +2730,8 @@ h6 {
 }
 
 .single-footer-widget ::selection {
-  background-color: #8490ff;
-  color: #777777;
+  background-color: #db1529;
+  color: #fff;
 }
 
 .single-footer-widget ::-webkit-input-placeholder {
