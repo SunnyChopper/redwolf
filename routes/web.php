@@ -17,6 +17,7 @@ Route::get('/test', 'PagesController@test');
 // Public site
 Route::get('/', 'PagesController@index');
 Route::get('/invoices/{invoice_id}', 'PagesController@show_invoice');
+Route::get('/mission', 'PagesController@mission');
 Route::get('/thank-you', 'PagesController@thank_you');
 
 // Admin site

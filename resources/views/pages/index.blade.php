@@ -119,4 +119,6 @@
 			</div>
 		</div>
 	</div>
+
+	@include('layouts.cta-row')
 @endsection

@@ -17,6 +17,14 @@ class PagesController extends Controller
     	return view('pages.index')->with('page_title', $page_title);
     }
 
+    public function mission() {
+        // Dynamic page elements
+        $page_title = "Mission";
+        $page_header = $page_title;
+
+        return view('pages.mission')->with('page_title', $page_title)->with('page_header', $page_header);
+    }
+
     public function show_invoice($invoice_id) {
     	// Get invoice
     	$invoice_helper = new InvoiceHelper($invoice_id);

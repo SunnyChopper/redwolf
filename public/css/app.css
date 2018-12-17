@@ -8,6 +8,19 @@ p {
 	line-height: 28px;
 }
 
+
+.genric-btn.primary {
+	color: #fff;
+	background: #db1529;
+	border: 1px solid transparent;
+}
+
+.genric-btn.primary:hover {
+	color: #db1529;
+	border: 1px solid #db1529;
+	background: #fff;
+}
+
 .carousel-control-prev {
 	left: -128px;
 }
@@ -351,6 +364,31 @@ p {
 	margin-bottom: 24px;
 }
 
+#bottom-cta-title {
+	font-family: 'Roboto';
+	font-size: 36px;
+}
+
+@media only screen and (max-width: 575px) {
+	#bottom-cta-title {
+		font-size: 24px;
+		text-align: center;
+	}
+
+	#bottom-cta-subtitle {
+		font-size: 12px;
+		line-height: 18px;
+		text-align: center;
+	}
+}
+
+@media only screen and (min-width: 575px) and (max-width: 768px) {
+	#bottom-cta-subtitle {
+		font-size: 16px;
+		line-height: 20px;
+	}
+}
+
 /* ------------------------ *\
 	Images
 \* ------------------------ */
@@ -416,8 +454,74 @@ p {
 }
 
 /* ------------------------ *\
+	Special Buttons
+\* ------------------------ */
+
+#bottom-cta-button {
+	position: relative;
+	top: 1em;
+	text-transform: uppercase;
+	display: block;
+	margin-right: 0px;
+}
+
+@media only screen and (max-width: 575px) {
+	#bottom-cta-button {
+		position: inherit;
+		margin-top: 8px;
+		text-transform: uppercase;
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+}
+
+@media only screen and (min-width: 575px) and (max-width: 768px) {
+	#bottom-cta-button {
+		position: relative;
+		top: 2em;
+	}
+}
+
+/* ------------------------ *\
 	Special Divs
 \* ------------------------ */
+
+.image-box {
+	border-radius: 8px;
+	background-color: white;
+}
+
+.image-box > .image-box-image {
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	padding: 0px;
+}
+
+.image-box > .image-box-image > img {
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	border: 2px solid #E0E0E0;
+}
+
+.image-box > .image-box-info {
+	padding: 24px;
+	text-align: center;
+	border-left: 2px solid #E0E0E0;
+	border-right: 2px solid #E0E0E0;
+}
+
+.image-box > .image-box-info > p {
+	font-size: 13px;
+}
+
+.image-box > .image-box-footer {
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+	padding: 16px;
+	border: 2px solid #E0E0E0;
+}
 
 .grey-box {
 	background: #F0F0F0;
@@ -438,9 +542,6 @@ p {
     border-radius: 100px;
 }
 
-.icon-box {
-
-}
 
 .icon-box > i {
 	font-size: 96px;
@@ -449,8 +550,32 @@ p {
 	color: #db1529;
 }
 
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+	.mission-info {
+		min-height: 320px;
+	}
+}
+
+@media only screen and (min-width: 575px) and (max-width: 768px) {
+	.mission-info {
+		min-height: 270px;
+	}
+}
+
+@media only screen and (max-width: 992px) {
+	.image-box {
+		margin-top: 16px;
+		margin-bottom: 16px;
+	}
+}
+
 @media only screen and (max-width: 575px) {
 	.icon-box {
+		margin-top: 16px;
+		margin-bottom: 16px;
+	}
+
+	.image-box {
 		margin-top: 16px;
 		margin-bottom: 16px;
 	}
