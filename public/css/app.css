@@ -453,6 +453,19 @@ p {
 	background-position: bottom;
 }
 
+.service-icon {
+	width: 30%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media only screen and (max-width: 575px) {
+	.service-icon {
+		width: 50%;
+	}
+}
+
 /* ------------------------ *\
 	Special Buttons
 \* ------------------------ */
@@ -578,5 +591,10 @@ p {
 	.image-box {
 		margin-top: 16px;
 		margin-bottom: 16px;
+	}
+
+	.service-info  {
+		margin-top: 32px;
+		margin-bottom: 32px;
 	}
 }
