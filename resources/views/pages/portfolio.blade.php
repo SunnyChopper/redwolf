@@ -5,6 +5,15 @@
 
 	<div class="container pt-64 pb-64">
 		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-12">
+				<div class="videoWrapper">
+				    <iframe width="1080" height="720" src="http://www.youtube.com/embed/E1Nd1v6OrLI?start=0&autoplay=1&showinfo=0&controls=1&mute=1" frameborder="0" allowfullscreen autoplay></iframe>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="row">
 			<div class="col-lg-4 col-md-6 col-sm-6 col-12">
 				<div class="image-box">
 					<div class="image-box-image">
@@ -35,21 +44,6 @@
 						<a href="https://youtu.be/FDd2DW24XtQ" class="genric-btn small primary rounded center-button">Watch Video</a>
 					</div>
 				</div>
-
-				<div class="image-box">
-					<div class="image-box-image">
-						<img src="{{ URL::asset('img/portfolio-7.jpg') }}" class="regular-image">
-					</div>
-
-					<div class="image-box-info">
-						<h5 class="text-center">PLT Sport BTS – PrettyLittleThing</h5>
-						<p class="text-center mb-0"><small>Marketing</small></p>
-					</div>
-
-					<div class="image-box-footer">
-						<a href="https://youtu.be/vnsNZKe5P_w" class="genric-btn small primary rounded center-button">Watch Video</a>
-					</div>
-				</div>
 			</div>
 
 			<div class="col-lg-4 col-md-6 col-sm-6 col-12">
@@ -70,31 +64,16 @@
 
 				<div class="image-box">
 					<div class="image-box-image">
-						<img src="{{ URL::asset('img/portfolio-6.jpg') }}" class="regular-image">
+						<img src="{{ URL::asset('img/portfolio-7.jpg') }}" class="regular-image">
 					</div>
 
 					<div class="image-box-info">
-						<h5 class="text-center">Generation K with Gary Vaynerchuk</h5>
+						<h5 class="text-center">PLT Sport BTS – PrettyLittleThing</h5>
 						<p class="text-center mb-0"><small>Marketing</small></p>
 					</div>
 
 					<div class="image-box-footer">
-						<p class="text-center mb-0">No link available</p>
-					</div>
-				</div>
-
-				<div class="image-box">
-					<div class="image-box-image">
-						<img src="{{ URL::asset('img/portfolio-8.jpg') }}" class="regular-image">
-					</div>
-
-					<div class="image-box-info">
-						<h5 class="text-center">PLT X Olivia Culpo BTS</h5>
-						<p class="text-center mb-0"><small>Marketing</small></p>
-					</div>
-
-					<div class="image-box-footer">
-						<p class="text-center mb-0">No link available</p>
+						<a href="https://youtu.be/vnsNZKe5P_w" class="genric-btn small primary rounded center-button">Watch Video</a>
 					</div>
 				</div>
 			</div>
@@ -112,21 +91,6 @@
 
 					<div class="image-box-footer">
 						<a href="https://youtu.be/IXWnP7gtbZc" class="genric-btn small primary rounded center-button">Watch Video</a>
-					</div>
-				</div>
-
-				<div class="image-box">
-					<div class="image-box-image">
-						<img src="{{ URL::asset('img/portfolio-5.jpg') }}" class="regular-image">
-					</div>
-
-					<div class="image-box-info">
-						<h5 class="text-center">Open Water 3</h5>
-						<p class="text-center mb-0"><small>Marketing</small></p>
-					</div>
-
-					<div class="image-box-footer">
-						<p class="text-center mb-0">No link available</p>
 					</div>
 				</div>
 
