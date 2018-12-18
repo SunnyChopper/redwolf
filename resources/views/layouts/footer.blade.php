@@ -36,7 +36,7 @@
 			</div>
 			<div class="col-lg-3  col-md-12">
 				<div class="single-footer-widget">
-					<img src="{{ URL::asset('img/veteran-business.png') }}" class="regular-image-50 right-button">
+					<img src="{{ URL::asset('img/veteran-business.png') }}" class="regular-image-50 right-button mobile-left-button">
 				</div>
 			</div>						
 		</div>

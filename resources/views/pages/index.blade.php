@@ -5,7 +5,7 @@
 	
 	<!-- About Us Section -->
 	<div class="dark-grey-row">
-		<div class="container p-32">
+		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-12">
 					<h2 class="text-center white mb-16 text-uppercase">About <span class="red">Us</span></h2>

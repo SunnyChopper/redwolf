@@ -74,8 +74,14 @@ p {
 }
 
 @media only screen and (max-width: 575px) {
+	p {
+		font-family: 'Roboto', 'Poppins', sans-serif;
+		font-size: 14px;
+		line-height: 26px;
+	}
+
 	.carousel-inner {
-		min-height: 575px;
+		min-height: 500px;
 	}
 
 	.carousel-control-next {
@@ -347,6 +353,29 @@ p {
 	background-size: cover;
 	background-position: center;
 	padding: 32px;
+}
+
+@media only screen and (max-width: 575px) {
+	.mobile-left-button {
+		display: block;
+	    width: fit-content;
+	    margin-left: 0px;
+	    margin-right: auto;
+	}
+
+	.mobile-right-button {
+		display: block;
+	    width: fit-content;
+	    margin-left: auto;
+	    margin-right: 0px;
+	}
+
+	.mobile-center-button {
+		display: block;
+	    width: fit-content;
+	    margin-left: auto;
+	    margin-right: auto;
+	}
 }
 
 /* ------------------------ *\
