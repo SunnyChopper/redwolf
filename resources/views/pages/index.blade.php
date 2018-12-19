@@ -31,7 +31,7 @@
 
 		<div class="row d-md-none">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-12">
-				<img src="{{ URL::asset('img/mobile-logos.jpg') }}" class="regular-image">
+				<img src="{{ URL::asset('img/mobile-logos.png') }}" class="regular-image">
 			</div>
 		</div>
 	</div>

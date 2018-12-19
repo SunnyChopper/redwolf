@@ -2113,7 +2113,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 767px) {
   .banner-area .fullscreen {
-    height: 700px !important;
+    height: 380px !important;
   }
 }
 
@@ -2160,7 +2160,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 414px) {
   .banner-content h1 {
-    font-size: 40px;
+    font-size: 32px;
   }
 }
 
