@@ -9,7 +9,8 @@
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-12">
 					<h2 class="text-center white mb-16 text-uppercase">About <span class="red">Us</span></h2>
-					<p class="text-center">Red Wolf Entertainment is a full service, data-driven brand agency that services brands in a wide range of industries. We specialize in helping companies grow a digital footprint to gain market share, and we take on full management for you. Our services include production, content creation, public relations, growth, strategy, and customer acquisition. Red Wolf Entertainment takes pride in the analytics and data that we report back to our clients to keep them informed on their brand each week. We’ve worked with clients such as BMW, LA Weekly, Rolls Royce, The Tonight Show Starring Jimmy Fallon, Jacoby & Meyers, K Swiss, Infusionsoft, Lionsgate, Penske, NBC Universal and Taylor Gang.</p>
+					<p class="text-center d-md-block d-none">Red Wolf Entertainment is a full service, data-driven brand agency that services brands in a wide range of industries. We specialize in helping companies grow a digital footprint to gain market share, and we take on full management for you. Our services include production, content creation, public relations, growth, strategy, and customer acquisition. Red Wolf Entertainment takes pride in the analytics and data that we report back to our clients to keep them informed on their brand each week. We’ve worked with clients such as BMW, LA Weekly, Rolls Royce, The Tonight Show Starring Jimmy Fallon, Jacoby & Meyers, K Swiss, Infusionsoft, Lionsgate, Penske, NBC Universal and Taylor Gang.</p>
+					<p class="text-center d-md-none">Red Wolf Entertainment is a full service, data-driven brand agency that services brands in a wide range of industries. We specialize in helping companies grow a digital footprint to gain market share, and we take on full management for you. Our services include production, content creation, public relations, growth, strategy, and customer acquisition.</p>
 				</div>
 			</div>
 		</div>
@@ -19,12 +20,18 @@
 	<div class="container p-32">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-12">
-				<h2 class="text-center text-uppercase mb-32">WE’VE HAD THE PLEASURE OF WORKING WITH SOME <br><span class="red">GREAT BRANDS AND PEOPLE.</span></h2>
+				<h2 class="text-center text-uppercase mb-32 logos-text">WE’VE HAD THE PLEASURE OF WORKING WITH SOME <br><span class="red">GREAT BRANDS AND PEOPLE.</span></h2>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row d-md-block d-none">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-12">
 				<img src="{{ URL::asset('img/company-logos.png') }}" class="regular-image">
+			</div>
+		</div>
+
+		<div class="row d-md-none">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-12">
+				<img src="{{ URL::asset('img/mobile-logos.jpg') }}" class="regular-image">
 			</div>
 		</div>
 	</div>
@@ -43,7 +50,8 @@
 					<div class="icon-box">
 						<i class="fa fa-laptop" aria-hidden="true"></i>
 						<h3 class="text-center white text-uppercase mb-16 mt-16">Marketing</h3>
-						<p class="text-center white">Red Wolf helps you develop a long-term brand and marketing strategy for the development and growth of your brand to achieve specific data-driven goals. Our deliverables include a session with your account manager to help us learn your company or brand’s voice, a 90-day content calendar that we will be managing for you, and a weekly analytics and metrics report to keep you updated on how your company or brand is performing. Our team uses our data to make informed decisions each week to improve results. With our 1.5 million social reach, we are sure we can deliver the results you need.</p>
+						<p class="text-center white d-md-block d-none">Red Wolf helps you develop a long-term brand and marketing strategy for the development and growth of your brand to achieve specific data-driven goals. Our deliverables include a session with your account manager to help us learn your company or brand’s voice, a 90-day content calendar that we will be managing for you, and a weekly analytics and metrics report to keep you updated on how your company or brand is performing. Our team uses our data to make informed decisions each week to improve results. With our 1.5 million social reach, we are sure we can deliver the results you need.</p>
+						<p class="text-center white d-md-none">Red Wolf helps you develop a long-term brand and marketing strategy for the development and growth of your brand to achieve specific data-driven goals. Our team uses our data to make informed decisions each week to improve results. With our 1.5 million social reach, we are sure we can deliver the results you need.</p>
 					</div>
 				</div>
 
@@ -51,7 +59,8 @@
 					<div class="icon-box">
 						<i class="fa fa-play" aria-hidden="true"></i>
 						<h3 class="text-center white text-uppercase mb-16 mt-16">Production</h3>
-						<p class="text-center white">Red Wolf’s production team will help you produce the content you need to deliver back to your audience. Our deliverables include a 45-60 minute session with our Executive Producer to help understand your vision, a strategy for your production aiming at the message and metrics you are using to define success, and up to 6 hours of photo/video production time that we can have ready within three weeks of your shooting time. Our production is done with the top professional video equipment, the RED, giving us sharp Cinema style shooting.</p>
+						<p class="text-center white d-md-block d-none">Red Wolf’s production team will help you produce the content you need to deliver back to your audience. Our deliverables include a 45-60 minute session with our Executive Producer to help understand your vision, a strategy for your production aiming at the message and metrics you are using to define success, and up to 6 hours of photo/video production time that we can have ready within three weeks of your shooting time. Our production is done with the top professional video equipment, the RED, giving us sharp Cinema style shooting.</p>
+						<p class="text-center white d-md-none">Red Wolf’s production team will help you produce the content you need to deliver back to your audience.Our production is done with the top professional video equipment, the RED, giving us sharp Cinema style shooting.</p>
 					</div>
 				</div>
 
@@ -59,7 +68,8 @@
 					<div class="icon-box">
 						<i class="fa fa-file-image-o" aria-hidden="true"></i>
 						<h3 class="text-center white text-uppercase mb-16 mt-16">Public Relations</h3>
-						<p class="text-center white">Our journalists and editors will help you produce stories about you and your brand to be published in top media outlets such as Entrepreneur, Forbes, LA Weekly, USA Today, and more. Our deliverables include a one-hour interview session with our Chief Editor to help us understand your objective for press, and the message you are trying to send. Additionally, we will connect you with a journalist who will be using this interview to create the value-driven stories that people love to read within one week of the interview. Finally, after receiving your approval for all content, we will submit and get your stories published for readers to enjoy.</p>
+						<p class="text-center white d-md-block d-none">Our journalists and editors will help you produce stories about you and your brand to be published in top media outlets such as Entrepreneur, Forbes, LA Weekly, USA Today, and more. Our deliverables include a one-hour interview session with our Chief Editor to help us understand your objective for press, and the message you are trying to send. Additionally, we will connect you with a journalist who will be using this interview to create the value-driven stories that people love to read within one week of the interview. Finally, after receiving your approval for all content, we will submit and get your stories published for readers to enjoy.</p>
+						<p class="text-center white d-md-none">Our journalists and editors will help you produce stories about you and your brand to be published in top media outlets such as Entrepreneur, Forbes, LA Weekly, USA Today, and more.Additionally, we will connect you with a journalist who will be using this interview to create the value-driven stories that people love to read within one week of the interview.</p>
 					</div>
 				</div>
 			</div>
