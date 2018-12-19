@@ -69,7 +69,7 @@
 						<i class="fa fa-file-image-o" aria-hidden="true"></i>
 						<h3 class="text-center white text-uppercase mb-16 mt-16">Public Relations</h3>
 						<p class="text-center white d-md-block d-none">Our journalists and editors will help you produce stories about you and your brand to be published in top media outlets such as Entrepreneur, Forbes, LA Weekly, USA Today, and more. Our deliverables include a one-hour interview session with our Chief Editor to help us understand your objective for press, and the message you are trying to send. Additionally, we will connect you with a journalist who will be using this interview to create the value-driven stories that people love to read within one week of the interview. Finally, after receiving your approval for all content, we will submit and get your stories published for readers to enjoy.</p>
-						<p class="text-center white d-md-none">Our journalists and editors will help you produce stories about you and your brand to be published in top media outlets such as Entrepreneur, Forbes, LA Weekly, USA Today, and more.Additionally, we will connect you with a journalist who will be using this interview to create the value-driven stories that people love to read within one week of the interview.</p>
+						<p class="text-center white d-md-none">Our journalists and editors will help you produce stories about you and your brand to be published in top media outlets such as Entrepreneur, Forbes, LA Weekly, USA Today, and more. Additionally, we will connect you with a journalist who will be using this interview to create the value-driven stories that people love to read within one week of the interview.</p>
 					</div>
 				</div>
 			</div>

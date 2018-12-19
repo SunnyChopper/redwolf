@@ -410,6 +410,7 @@ p {
 .banner-content h1 {
 	text-align: center;
 	margin-bottom: 24px;
+	text-shadow: 0px 2px 8px #000000
 }
 
 #bottom-cta-title {

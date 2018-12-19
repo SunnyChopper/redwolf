@@ -7,7 +7,7 @@
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-12">
 				<div class="videoWrapper">
-				    <iframe width="1080" height="720" src="http://www.youtube.com/embed/E1Nd1v6OrLI?start=0&autoplay=1&showinfo=0&controls=1&mute=1" frameborder="0" allowfullscreen autoplay></iframe>
+				    <iframe width="1080" height="720" src="https://www.youtube.com/embed/E1Nd1v6OrLI?start=0&autoplay=1&showinfo=0&controls=1&mute=1" frameborder="0" allowfullscreen autoplay></iframe>
 				</div>
 
 			</div>
