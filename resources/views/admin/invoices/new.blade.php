@@ -7,51 +7,101 @@
 		<div class="row">
 			<div class="col-lg-8 mx-lg-auto col-md-8 mx-md-auto col-sm-12 col-12">
 				<div class="grey-box">
-					@if(count($clients) > 0)
-						<form id="create_invoice_form" action="/admin/invoices/create" method="POST">
-							{{ csrf_field() }}
-							<div class="row">
-								<div class="col-12">
-									<div class="form-group">
-										<h5 class="mb-2">Company:</h5>
-										<select class="form-control" name="client_id" form="create_invoice_form">
-											@foreach($clients as $client)
-												<option value="{{ $client->id }}">{{ $client->company_name }}</option>
-											@endforeach
-										</select>
-									</div>
+					<form id="create_invoice_form" action="/admin/invoices/create" method="POST">
+						{{ csrf_field() }}
+						<div class="row">
+							<div class="col-12">
+								<h4>Step 1: Choose the Client</h4>
+								<hr />
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-12">
+								<div class="form-group">
+									<h5 class="mb-2">Company:</h5>
+									<select id="client_id" class="form-control" name="client_id" form="create_invoice_form">
+										<option value="create_new">Create New</option>
+										@foreach($clients as $client)
+											<option value="{{ $client->id }}">{{ $client->company_name }}</option>
+										@endforeach
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="row" id="new_client_form">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
+								<h5 class="mb-2">Contact First Name:</h5>
+								<input type="text" name="client_first_name" class="form-control" required="true">
+							</div>
+
+							<div class="col-lg-6 col-md-6 col-sm-6 col-12 form-group">
+								<h5 class="mb-2">Contact Last Name:</h5>
+								<input type="text" name="client_last_name" class="form-control" required="true">
+							</div>
+
+							<div class="col-12 form-group">
+								<h5 class="mb-2">Contact Email:</h5>
+								<input type="email" name="client_email" class="form-control" required="true">
+							</div>
+
+							<div class="col-12 form-group">
+								<h5 class="mb-2">Company Name:</h5>
+								<input type="text" name="company_name" class="form-control" required="true">
+							</div>
+						</div>
+
+						<div class="row mt-32">
+							<div class="col-12">
+								<h4>Step 2: Create Invoice</h4>
+								<hr />
+							</div>
+
+							<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="form-group">
+									<h5 class="mb-2">Amount:</h5>
+									<input type="number" name="amount" class="form-control" min="0.00" step="0.01" required>
 								</div>
 							</div>
 
-							<div class="row">
-								<div class="col-lg-6 col-md-6 col-sm-6 col-12">
-									<div class="form-group">
-										<h5 class="mb-2">Amount:</h5>
-										<input type="number" name="amount" class="form-control" min="0.00" step="0.01" required>
-									</div>
-								</div>
-
-								<div class="col-lg-6 col-md-6 col-sm-6 col-12">
-									<div class="form-group">
-										<h5 class="mb-2">Due Date:</h5>
-										<input type="date" name="due_date" class="form-control" required>
-									</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="form-group">
+									<h5 class="mb-2">Due Date:</h5>
+									<input type="date" name="due_date" class="form-control" required>
 								</div>
 							</div>
+						</div>
 
-							<div class="row mt-16">
-								<div class="col-12">
-									<input type="submit" value="Create Invoice" class="primary-btn center-button">
-								</div>
+						<div class="row mt-16">
+							<div class="col-12">
+								<input type="submit" value="Create Invoice" class="primary-btn center-button">
 							</div>
-						</form>
-					@else
-						<h3 class="text-center">No Clients Exist</h3>
-						<p class="text-center">You must create a client before you can create an invoice.</p>
-						<a href="/admin/clients/new" class="primary-btn center-button">Create New Client</a>
-					@endif
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
+@endsection
+
+@section('page_js')
+	<script type="text/javascript">
+		$("#client_id").on('change', function() {
+			var val = $(this).val();
+			if (val == "create_new") {
+				$("#new_client_form").show();
+				$("input[name=client_first_name]").attr('required', true);
+				$("input[name=client_last_name]").attr('required', true);
+				$("input[name=client_email]").attr('required', true);
+				$("input[name=company_name]").attr('required', true);
+			} else {
+				$("#new_client_form").hide();
+				$("input[name=client_first_name]").attr('required', false);
+				$("input[name=client_last_name]").attr('required', false);
+				$("input[name=client_email]").attr('required', false);
+				$("input[name=company_name]").attr('required', false);
+			}
+		});
+	</script>
 @endsection

@@ -11,20 +11,47 @@ use Illuminate\Http\Request;
 class InvoicesController extends Controller
 {
     public function create(Request $data) {
-    	// Get data
-    	$invoice_data = array(
-    		"client_id" => $data->client_id,
-    		"amount" => $data->amount,
-    		"due_date" => $data->due_date,
-    		"status" => 0
-    	);
+        // Check to see if new client created
+        if ($data->client_id == "create_new") {
+            $client_data = array(
+                "company_name" => $data->company_name,
+                "email" => $data->client_email,
+                "first_name" => $data->client_first_name,
+                "last_name" => $data->client_last_name
+            );
 
-    	// Create invoice
-    	$invoice_helper = new InvoiceHelper();
-    	$invoice_id = $invoice_helper->create($invoice_data);
+            // Create client
+            $client_helper = new ClientHelper();
+            $client_id = $client_helper->create($client_data);
 
-        // Get client data
-        $client_helper = new ClientHelper($data->client_id);
+            // Get data
+            $invoice_data = array(
+                "client_id" => $client_id,
+                "amount" => $data->amount,
+                "due_date" => $data->due_date,
+                "status" => 0
+            );
+
+            // Create invoice
+            $invoice_helper = new InvoiceHelper();
+            $invoice_id = $invoice_helper->create($invoice_data);
+
+        } else {
+            // Get data
+            $invoice_data = array(
+                "client_id" => $data->client_id,
+                "amount" => $data->amount,
+                "due_date" => $data->due_date,
+                "status" => 0
+            );
+
+            // Create invoice
+            $invoice_helper = new InvoiceHelper();
+            $invoice_id = $invoice_helper->create($invoice_data);
+
+            // Get client data
+            $client_helper = new ClientHelper($data->client_id);
+        }
 
         // Send out email to client to notify
         $mail_data = array(

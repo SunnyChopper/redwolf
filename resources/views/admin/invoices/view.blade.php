@@ -40,7 +40,7 @@
 										<td>{{ url('/invoices/' . $invoice->id) }}</td>
 										<td style="float: right;">
 											<a href="/admin/invoices/edit/{{ $invoice->id }}" class="genric-btn small primary">Edit</a>
-											<button type="button" class="genric-btn delete_invoice_button small danger" id="{{ $invoice->id }}">Delete</button>
+											{{-- <button type="button" class="genric-btn delete_invoice_button small danger" id="{{ $invoice->id }}">Delete</button> --}}
 										</td>
 									</tr>
 								@endforeach

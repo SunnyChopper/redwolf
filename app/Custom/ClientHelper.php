@@ -28,6 +28,8 @@ class ClientHelper {
 		$client->email = $email;
 		$client->save();
 
+		$this->id = $client->id;
+
 		return $client->id;
 	}
 
