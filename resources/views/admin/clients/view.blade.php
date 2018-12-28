@@ -27,7 +27,7 @@
 										<td>{{ $client->email }}</td>
 										<td style="float: right;">
 											<a href="/admin/clients/edit/{{ $client->id }}" class="genric-btn small primary">Edit</a>
-											<button type="button" class="genric-btn small danger" id="{{ $client->id }}">Delete</button>
+											{{-- <button type="button" class="genric-btn small danger" id="{{ $client->id }}">Delete</button> --}}
 										</td>
 									</tr>
 								@endforeach
