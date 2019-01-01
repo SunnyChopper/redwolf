@@ -120,7 +120,7 @@ class MailHelper {
 			$message->from(env('MAIL_USERNAME'), "Red Wolf");
 			$message->replyTo(env('MAIL_USERNAME'), "Red Wolf");
 			$message->subject($email_data["subject"]);
-			$message->cc("sunny@redwolfent.com", "Sunny Singh");
+			$message->cc("luis@redwolfent.com", "Luis Garcia");
 		});
 	}
 
