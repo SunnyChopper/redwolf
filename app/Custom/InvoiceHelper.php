@@ -13,6 +13,8 @@ use Session;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Stripe\Error\Card;
 
+use Carbon\Carbon;
+
 class InvoiceHelper {
 	/* Private global variables */
 	private $id;
@@ -35,6 +37,7 @@ class InvoiceHelper {
 		$invoice->amount = doubleval($amount);
 		$invoice->status = $status;
 		$invoice->due_date = $due_date;
+		$invoice->next_late_payment_email_date = $due_date;
 		$invoice->save();
 
 		return $invoice->id;
@@ -59,12 +62,17 @@ class InvoiceHelper {
 		$invoice = Invoice::find($id);
 		$invoice->amount = $amount;
 		$invoice->due_date = $due_date;
+		$invoice->next_late_payment_email_date = $due_date;
 		$invoice->status = $status;
 		$invoice->save();
 	}
 
 	// TODO: Create delete function
 	// public function delete() {}
+
+	public function get_late_payment_invoices() {
+		return Invoice::where('status', 0)->where('due_date', '<=', Carbon::now())->get();
+	}
 
 	public function get_all_invoices() {
 		// TODO: Update with `is_active` field

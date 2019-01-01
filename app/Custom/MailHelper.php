@@ -17,6 +17,7 @@ class MailHelper {
 	private $recipient_email;
 	private $body;
 	private $subject;
+	private $data_tags;
 
 	/* Initializer */
 	public function __construct($data) {
@@ -67,6 +68,12 @@ class MailHelper {
 		} else {
 			$this->subject = "";
 		}
+
+		if (isset($data["data_tags"])) {
+			$this->data_tags = $data["data_tags"];
+		} else {
+			$this->data_tags = array();
+		}
 	}
 
 	/* Public functions */
@@ -106,6 +113,17 @@ class MailHelper {
 		});
 	}
 
+	public function send_late_payment_email() {
+		$email_data = $this->get_email_data();
+		Mail::send('emails.late-payment-email', $email_data["data_tags"], function($message) use ($email_data) {
+			$message->to($email_data["recipient_email"], $email_data["recipient_first_name"] . " " . $email_data["recipient_last_name"]);
+			$message->from(env('MAIL_USERNAME'), "Red Wolf");
+			$message->replyTo(env('MAIL_USERNAME'), "Red Wolf");
+			$message->subject($email_data["subject"]);
+			$message->cc("sunny@redwolfent.com", "Sunny Singh");
+		});
+	}
+
 	/* Private functions */
 	private function get_email_data() {
 		$data = array(
@@ -116,7 +134,8 @@ class MailHelper {
 			"recipient_last_name" => $this->recipient_last_name,
 			"recipient_email" => $this->recipient_email,
 			"body" => $this->body,
-			"subject" => $this->subject
+			"subject" => $this->subject,
+			"data_tags" => $this->data_tags
 		);
 
 		return $data;
