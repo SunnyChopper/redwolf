@@ -17,7 +17,7 @@
 			</div>
 			<div class="col-lg-3 col-md-12">
 				<div class="single-footer-widget">
-					<img src="{{ URL::asset('img/veteran-business.png') }}" class="regular-image-80 right-button mobile-left-button">
+					<img src="{{ URL::asset('img/veteran-business.png') }}" class="regular-image-80 regular-image-40-tablet right-button left-justify-mobile left-justify-tablet">
 				</div>
 			</div>						
 		</div>

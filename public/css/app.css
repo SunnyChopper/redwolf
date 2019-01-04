@@ -34,7 +34,11 @@ p {
 }
 
 .carousel-inner {
-	min-height: 300px;
+	min-height: 340px;
+	width: 75%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .primary-btn {
@@ -96,6 +100,22 @@ p {
 }
 
 @media only screen and (min-width: 768px) and (max-width: 992px) {
+	.carousel-control-prev {
+		left: -32px;
+	}
+
+	.carousel-control-next {
+		right: -32px;
+	}
+
+	.carousel-inner {
+		min-height: 420px;
+		width: 75%;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
 	.front-page-banner {
 		height: 450px;
 	}
@@ -119,6 +139,7 @@ p {
 	}
 
 	.carousel-inner {
+		width: 100%;
 		min-height: 500px;
 	}
 
@@ -619,7 +640,8 @@ p {
 .banner-area {
 	background: url('../img/banner.jpg');
 	background-size: cover;
-	background-position: bottom;
+	background-position-y: 65%;
+	background-position-x: 50%;
 }
 
 .service-icon {

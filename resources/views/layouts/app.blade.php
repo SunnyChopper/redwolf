@@ -32,6 +32,7 @@
 		<link rel="stylesheet" href="{{ URL::asset('css/owl.carousel.css') }}">
 		<link rel="stylesheet" href="{{ URL::asset('css/main.css') }}">
 		<link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
+		<link rel="stylesheet" href="{{ URL::asset('css/layouts.css') }}">
 	</head>
 	<body>
 		@include('layouts.navbar')
