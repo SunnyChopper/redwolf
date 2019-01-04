@@ -38,7 +38,7 @@
 													<tbody>
 														<tr>
 															<td style="width:300px;">
-																<a href="https://redwolfent.com" target="_blank"><img alt="Red Wolf Entertainment Logo" height="auto" src="{{ URL::asset('img/logo.png') }}" style="border:none;border-radius:0px;display:block;font-size:13px;outline:none;text-decoration:none;width:100%;height:auto;" title="" width="300"></a>
+																<a href="https://redwolfent.com" target="_blank"><img alt="Red Wolf Entertainment Logo" height="auto" src="https://www.redwolfent.com/img/logo.png" style="border:none;border-radius:0px;display:block;font-size:13px;outline:none;text-decoration:none;width:100%;height:auto;" title="" width="300"></a>
 															</td>
 														</tr>
 													</tbody>
