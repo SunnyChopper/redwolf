@@ -70,7 +70,9 @@ class AdminController extends Controller
         $page_header = $page_title;
 
         // Protect admin backend
-        $this->protect();
+        if ($this->protect() != 1) {
+            return redirect(url('/admin'));
+        }
 
         return view('admin.dashboard')->with('page_title', $page_title)->with('page_header', $page_header);
     }
@@ -81,7 +83,9 @@ class AdminController extends Controller
         $page_header = $page_title;
 
         // Protect admin backend
-        $this->protect();
+        if ($this->protect() != 1) {
+            return redirect(url('/admin'));
+        }
 
         // Get clients
         $client_helper = new ClientHelper();
@@ -96,7 +100,9 @@ class AdminController extends Controller
         $page_header = $page_title;
 
         // Protect admin backend
-        $this->protect();
+        if ($this->protect() != 1) {
+            return redirect(url('/admin'));
+        }
 
         // Get invoices
         $client_helper = new ClientHelper($client_id);
@@ -111,7 +117,9 @@ class AdminController extends Controller
         $page_header = $page_title;
 
         // Protect admin backend
-        $this->protect();
+        if ($this->protect() != 1) {
+            return redirect(url('/admin'));
+        }
 
         return view('admin.clients.new')->with('page_title', $page_title)->with('page_header', $page_header);
     }
@@ -122,7 +130,9 @@ class AdminController extends Controller
         $page_header = $page_title;
 
         // Protect admin backend
-        $this->protect();
+        if ($this->protect() != 1) {
+            return redirect(url('/admin'));
+        }
 
         // Get invoices
         $invoice_helper = new InvoiceHelper();
@@ -140,7 +150,9 @@ class AdminController extends Controller
         $page_header = $page_title;
 
         // Protect admin backend
-        $this->protect();
+        if ($this->protect() != 1) {
+            return redirect(url('/admin'));
+        }
 
         // Get invoices
         $invoice_helper = new InvoiceHelper($invoice_id);
@@ -158,7 +170,9 @@ class AdminController extends Controller
         $page_header = $page_title;
 
         // Protect admin backend
-        $this->protect();
+        if ($this->protect() != 1) {
+            return redirect(url('/admin'));
+        }
 
         // Get clients
         $client_helper = new ClientHelper();
@@ -166,16 +180,21 @@ class AdminController extends Controller
 
         return view('admin.invoices.new')->with('page_title', $page_title)->with('page_header', $page_header)->with('clients', $clients);
     }
-
+    
     /* Private functions */
     private function protect() {
         // Check to see if already logged in
-        if (Session::has('admin_login')) {
-            if (Session::get('admin_login') == false) {
-                return redirect(url('/admin'));
+        if (!Auth::guest()) {
+            // Check to see if user has backend authorization
+            $user = Auth::user();
+            if ($user->backend_auth == 0) {
+                return 0;
+            } else {
+                return 1;
             }
         } else {
-            return redirect(url('/admin'));
+            // Not even logged in
+            return 2;
         }
     }
 
