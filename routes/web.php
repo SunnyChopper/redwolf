@@ -21,6 +21,12 @@ Route::get('/dev/drsonja', function() {
 Route::get('/dev/mehrassoc', function() {
 	return redirect('http://ec2-3-17-11-45.us-east-2.compute.amazonaws.com');
 });
+Route::get('/dev/gromd', function() {
+	return redirect('http://ec2-18-216-104-36.us-east-2.compute.amazonaws.com');
+});
+Route::get('/dev/steve', function() {
+	return redirect('http://ec2-18-234-73-162.compute-1.amazonaws.com');
+})
 
 // Public site
 Route::get('/', 'PagesController@index');
