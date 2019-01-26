@@ -26,7 +26,7 @@ Route::get('/dev/gromd', function() {
 });
 Route::get('/dev/steve', function() {
 	return redirect('http://ec2-18-234-73-162.compute-1.amazonaws.com');
-})
+});
 
 // Public site
 Route::get('/', 'PagesController@index');
