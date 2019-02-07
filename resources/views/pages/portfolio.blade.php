@@ -18,7 +18,7 @@
 		<div class="container pt-64 pb-64">
 			<div class="row">
 				<div class="col-12">
-					<h3 class="text-center">RedWolf × Moonboy</h3>
+					<h3 class="text-center mb-32">RedWolf × Moonboy</h3>
 				</div>
 
 				<div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-16 mt-16">
