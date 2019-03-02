@@ -13,7 +13,7 @@
 
 // Client websites
 Route::get('/dev/divinebliss', function(){
-	return redirect('http://ec2-18-218-40-196.us-east-2.compute.amazonaws.com');
+	return redirect('http://ec2-3-17-193-30.us-east-2.compute.amazonaws.com');
 });
 Route::get('/dev/drsonja', function() {
 	return redirect('http://ec2-18-223-44-79.us-east-2.compute.amazonaws.com');
