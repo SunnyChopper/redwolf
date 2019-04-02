@@ -66,6 +66,12 @@
 							</div>
 						</div>
 
+						<div class="row">
+							<div class="col-12">
+								<div class="g-recaptcha" id="feedback-recaptcha" data-callback="recaptchaCallback" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY')  }}"></div>
+							</div>
+						</div>
+
 						@if(session()->has('success'))
 							<div class="row mt-16">
 								<div class="col-lg-12 col-md-12 col-sm-12 col-12">
@@ -83,7 +89,7 @@
 						@endif
 
 						<div class="row mt-16">
-							<input type="submit" class="primary-btn center-button" value="Submit">
+							<input type="submit" id="submit_button" class="btn btn-disabled center-button" disabled value="Submit">
 						</div>
 					</form>
 				</div>
@@ -92,4 +98,13 @@
 	</div>
 
 
+@endsection
+
+@section('page_js')
+	<script type="text/javascript">
+		function recaptchaCallback() {
+			$('#submit_button').removeAttr('disabled');
+			$("#submit_button").removeClass('btn-disabled').addClass('btn-success');
+		}
+	</script>
 @endsection

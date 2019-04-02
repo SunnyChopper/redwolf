@@ -33,6 +33,8 @@
 		<link rel="stylesheet" href="{{ URL::asset('css/main.css') }}">
 		<link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
 		<link rel="stylesheet" href="{{ URL::asset('css/layouts.css') }}">
+
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 	</head>
 	<body>
 		@include('layouts.navbar')
