@@ -50,6 +50,15 @@ Route::get('/admin/clients/new', 'AdminController@new_client');
 Route::get('/admin/invoices/view', 'AdminController@view_invoices');
 Route::get('/admin/invoices/edit/{invoice_id}', 'AdminController@edit_invoice');
 Route::get('/admin/invoices/new', 'AdminController@new_invoice');
+Route::get('/admin/employees/view', 'EmployeesController@view_all');
+Route::get('/admin/employees/new', 'EmployeesController@new');
+Route::post('/admin/employees/create', 'EmployeesController@create');
+Route::get('/admin/employees/edit/{employee_id}', 'EmployeesController@edit');
+Route::post('/admin/employees/update', 'EmployeesController@update');
+Route::post('/admin/employees/delete', 'EmployeesController@delete');
+Route::get('/admin/employee-categories/new', 'EmployeesCategoryController@new');
+Route::post('/admin/employee-categories/create', 'EmployeesCategoryController@create');
+Route::get('/admin/employee-categories/view', 'EmployeesCategoryController@view_all');
 
 // Client functions
 Route::post('/admin/clients/create', 'ClientsController@create');
