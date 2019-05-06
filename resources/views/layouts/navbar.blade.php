@@ -10,7 +10,7 @@
 			</button>
 
 			<div class="collapse navbar-collapse justify-content-end align-items-center" id="navbar_menu">
-				@if(Auth::guest())
+				@if(Auth::guest() && (Session::has('active_client_id') == false))
 				  	<ul class="navbar-nav">
 						<li><a href="/">Home</a></li>
 						<li><a href="/mission">Our Mission</a></li>
@@ -50,6 +50,37 @@
 							</li>	
 					    </ul>
 			    	@endif
+			    @elseif(Session::has('active_client_id'))
+			    	<ul class="navbar-nav">
+			    		<li><a href="/clients/dashboard">Dashboard</a></li>
+
+			    		<li class="dropdown"><a class="dropdown-toggle" href="/client/tasks/view" data-toggle="dropdown">Tasks</a>
+							<div class="dropdown-menu">
+						    	<a class="dropdown-item" href="/client/tasks/view">View All Tasks</a>
+						    	<a class="dropdown-item" href="/client/tasks/request">Request New Task</a>
+						    </div>
+						</li>
+
+						<li class="dropdown"><a href="/client/logs/view">Logs</a></li>
+
+						<li class="dropdown"><a class="dropdown-toggle" href="/client/documents/view" data-toggle="dropdown">Documents</a>
+							<div class="dropdown-menu">
+						    	<a class="dropdown-item" href="/client/documents/view">View Documents</a>
+						    	<a class="dropdown-item" href="/client/contracts/view">View Contracts</a>
+						    </div>
+						</li>
+							
+
+			    		<li class="dropdown"><a class="dropdown-toggle" href="/client/invoices/view" data-toggle="dropdown">Invoices</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="/client/invoices/all">View All Invoices</a>
+						    	<a class="dropdown-item" href="/client/invoices/past">View Past Invoices</a>
+						    	<a class="dropdown-item" href="/client/invoices/pay">Pay Balance</a>
+						    </div>
+						</li>
+
+						<li class="dropdown"><a href="/client/logout">Logout</a></li>
+			    	</ul>
 			    @endif
 			</div>
 		</div>

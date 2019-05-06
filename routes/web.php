@@ -71,6 +71,11 @@ Route::post('/admin/invoices/update', 'InvoicesController@update');
 Route::post('/admin/invoices/delete', 'InvoicesController@delete');
 Route::post('/invoices/pay', 'InvoicesController@make_payment');
 
+// Client dashboard functions
+Route::get('/clients/login', 'ClientsController@dashboard_login');
+Route::post('/clients/login/attempt', 'ClientsController@attempt_login');
+Route::get('/clients/dashboard', 'ClientsController@dashboard');
+
 // User control
 Route::post('/admin/login', 'AdminController@user_login');
 

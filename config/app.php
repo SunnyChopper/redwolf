@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
+        ConsoleTVs\Charts\ChartsServiceProvider::class,
 
         /*
          * Application Service Providers...
