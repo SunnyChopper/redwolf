@@ -16,8 +16,8 @@
 					<hr />
 					<a href="/clients/dashboard/tasks" class="primary-btn text-center mt-8 mb-8" style="width: 100%;">View Tasks</a>
 					<a href="/clients/dashboard/logs" class="primary-btn text-center mt-8 mb-8" style="width: 100%;">View Logs</a>
-					<a href="/clients/dashboard/documents" class="primary-btn text-center mt-8 mb-8" style="width: 100%;">View Documents</a>
-					<a href="/clients/dashboard/contracts" class="primary-btn text-center mt-8 mb-8" style="width: 100%;">View Contracts</a>
+					{{-- <a href="/clients/dashboard/documents" class="primary-btn text-center mt-8 mb-8" style="width: 100%;">View Documents</a>
+					<a href="/clients/dashboard/contracts" class="primary-btn text-center mt-8 mb-8" style="width: 100%;">View Contracts</a> --}}
 					<a href="/clients/dashboard/invoices" class="primary-btn text-center mt-8 mb-8" style="width: 100%;">View Invoices</a>
 					<hr />
 					<h5 class="mb-2"><strong>Your Representative:</strong></h5>
@@ -27,4 +27,8 @@
 			</div>
 		</div>
 	</div>
+@endsection
+
+@section('page_js')
+	{!! $chart->script() !!}
 @endsection

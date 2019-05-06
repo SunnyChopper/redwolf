@@ -20,6 +20,12 @@ class AdminHelper {
         }
 	}
 
+    public static function logout() {
+        Auth::logout();
+        Session::forget('backend_auth');
+        Session::save();
+    }
+
 }
 
 ?>

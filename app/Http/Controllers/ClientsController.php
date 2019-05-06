@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Client;
+use App\Task;
 use App\Custom\ClientHelper;
+use App\Custom\ClientDashboardHelper;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\Charts\SampleChart;
@@ -29,6 +31,12 @@ class ClientsController extends Controller
         }
     }
 
+    public function client_logout() {
+        Session::forget('active_client_id');
+        Session::save();
+        return redirect(url('/'));
+    }
+
     public function dashboard() {
         // Check if authorized.
         if ($this->authorized() == false) {
@@ -36,22 +44,52 @@ class ClientsController extends Controller
         }
 
         // Get client
-        $client_id = Session::get('active_client_id');
-        $client = Client::find($client_id);
+        $client = $this->get_client();
+        $client_id = $client->save();
 
-        // Charts
-        $chart = new SampleChart;
-        $chart->labels([Carbon::today()->subDays(2)->format('M jS, Y'), Carbon::today()->subDays(1)->format('M jS, Y'), Carbon::today()->format('M jS, Y')]);
-        $chart->dataset('Tasks Completed', 'line', [3,2,6])->options([
-            'backgroundColor' => 'rgba(219, 21, 41, 0.75)',
-            'fill' => true
-        ]);
-        $chart->displayLegend(false);
+        $chart = ClientDashboardHelper::getTasksCompletedChart($client_id);
 
         $page_title = $client->company_name;
         $page_header = $page_title;
 
         return view('clients.dashboard')->with('page_title', $page_title)->with('page_header', $page_header)->with('client', $client)->with('chart', $chart);
+    }
+
+    public function dashboard_view_tasks() {
+        // Get client id
+        $client = $this->get_client();
+        $client_id = $client->save();
+
+        // Get tasks
+        $tasks = ClientDashboardHelper::viewAllForClient($client_id);
+
+        $page_title = "All Tasks";
+        $page_header = $page_title;
+        return view('clients.tasks.view')->with('page_title', $page_title)->with('page_header', $page_header)->with('tasks', $tasks);
+    }
+
+    public function dashboard_request_task() {
+        // Get client id
+        $client = $this->get_client();
+        $client_id = $client->save();
+
+        $page_title = "Request New Task";
+        $page_header = $page_title;
+        return view('clients.tasks.request')->with('page_title', $page_title)->with('page_header', $page_header)->with('client', $client);
+    }
+
+    public function dashboard_submit_request(Request $data) {
+        // Create new task
+        $task = new Task;
+        $task->client_id = $data->client_id;
+        $task->category_id = 0;
+        $task->title = $data->title;
+        $task->description = $data->description;
+        $task->due_date = $data->due_date;
+        $task->status = 2;
+        $task->save();
+
+        return redirect()->back()->with('success', 'Task request submitted.');
     }
 
     public function create(Request $data) {
@@ -95,5 +133,11 @@ class ClientsController extends Controller
         } else {
             return false;
         }
+    }
+
+    private function get_client() {
+        $client_id = Session::get('active_client_id');
+        $client = Client::find($client_id);
+        return $client;
     }
 }

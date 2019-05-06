@@ -59,6 +59,8 @@ Route::post('/admin/employees/delete', 'EmployeesController@delete');
 Route::get('/admin/employee-categories/new', 'EmployeesCategoryController@new');
 Route::post('/admin/employee-categories/create', 'EmployeesCategoryController@create');
 Route::get('/admin/employee-categories/view', 'EmployeesCategoryController@view_all');
+Route::get('/admin/logout', 'AdminController@logout');
+Route::get('/admin/tasks/requested', 'AdminController@view_requested_tasks');
 
 // Client functions
 Route::post('/admin/clients/create', 'ClientsController@create');
@@ -75,6 +77,10 @@ Route::post('/invoices/pay', 'InvoicesController@make_payment');
 Route::get('/clients/login', 'ClientsController@dashboard_login');
 Route::post('/clients/login/attempt', 'ClientsController@attempt_login');
 Route::get('/clients/dashboard', 'ClientsController@dashboard');
+Route::get('/clients/dashboard/tasks', 'ClientsController@dashboard_view_tasks');
+Route::get('/clients/dashboard/tasks/request', 'ClientsController@dashboard_request_task');
+Route::post('/clients/dashboard/tasks/request/submit', 'ClientsController@dashboard_submit_request');
+Route::get('/clients/logout', 'ClientsController@client_logout');
 
 // User control
 Route::post('/admin/login', 'AdminController@user_login');

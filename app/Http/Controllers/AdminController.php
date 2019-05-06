@@ -6,8 +6,10 @@ use Auth;
 
 use App\User;
 
+use App\Custom\AdminHelper;
 use App\Custom\ClientHelper;
 use App\Custom\InvoiceHelper;
+use App\Custom\ClientDashboardHelper;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -30,6 +32,11 @@ class AdminController extends Controller
         }
 
     	return view('admin.login')->with('page_title', $page_title)->with('page_header', $page_header);
+    }
+
+    public function logout() {
+        AdminHelper::logout();
+        return redirect(url('/'));
     }
 
     public function user_login(Request $data) {
@@ -62,6 +69,13 @@ class AdminController extends Controller
     			return redirect()->back()->with('admin_login_error', 'Password is incorrect.');
     		}
     	}
+    }
+
+    public function view_requested_tasks() {
+        $tasks = ClientDashboardHelper::viewRequestedTasks();
+        $page_title = "Requested Tasks";
+        $page_header = $page_title;
+        return view('admin.tasks.requested')->with('tasks', $tasks)->with('page_title', $page_title)->with('page_header', $page_header);
     }
 
     public function dashboard() {

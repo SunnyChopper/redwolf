@@ -42,6 +42,14 @@
 							    	<a class="dropdown-item" href="/admin/employee-categories/new">New Category</a>
 							    </div>
 							</li>
+							<li class="dropdown"><a class="dropdown-toggle" href="/admin/employees/view" data-toggle="dropdown">Tasks</a>
+								<div class="dropdown-menu">
+							    	<a class="dropdown-item" href="/admin/tasks/requested">View Requested <span class="badge badge-primary ml-2">{{ App\Custom\ClientDashboardHelper::numberRequestedTasks() }}</span></a>
+							    	<a class="dropdown-item" href="/admin/employees/new">New Employee</a>
+							    	<a class="dropdown-item" href="/admin/employee-categories/view">View Categories</a>
+							    	<a class="dropdown-item" href="/admin/employee-categories/new">New Category</a>
+							    </div>
+							</li>
 							<li class="dropdown"><a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">{{ Auth::user()->first_name }}</a>
 								<div class="dropdown-menu">
 							    	<a class="dropdown-item" href="/admin/settings">Admin Settings</a>
@@ -54,32 +62,32 @@
 			    	<ul class="navbar-nav">
 			    		<li><a href="/clients/dashboard">Dashboard</a></li>
 
-			    		<li class="dropdown"><a class="dropdown-toggle" href="/client/tasks/view" data-toggle="dropdown">Tasks</a>
+			    		<li class="dropdown"><a class="dropdown-toggle" href="/clients/dashboard/tasks" data-toggle="dropdown">Tasks</a>
 							<div class="dropdown-menu">
-						    	<a class="dropdown-item" href="/client/tasks/view">View All Tasks</a>
-						    	<a class="dropdown-item" href="/client/tasks/request">Request New Task</a>
+						    	<a class="dropdown-item" href="/clients/dashboard/tasks">View All Tasks</a>
+						    	<a class="dropdown-item" href="/clients/dashboard/tasks/request">Request New Task</a>
 						    </div>
 						</li>
 
 						<li class="dropdown"><a href="/client/logs/view">Logs</a></li>
 
-						<li class="dropdown"><a class="dropdown-toggle" href="/client/documents/view" data-toggle="dropdown">Documents</a>
+						<li class="dropdown"><a class="dropdown-toggle" href="/clients/dashboard/documents" data-toggle="dropdown">Documents</a>
 							<div class="dropdown-menu">
-						    	<a class="dropdown-item" href="/client/documents/view">View Documents</a>
-						    	<a class="dropdown-item" href="/client/contracts/view">View Contracts</a>
+						    	<a class="dropdown-item" href="/clients/dashboard/documents">View Documents</a>
+						    	<a class="dropdown-item" href="/clients/dashboard/contracts">View Contracts</a>
 						    </div>
 						</li>
 							
 
-			    		<li class="dropdown"><a class="dropdown-toggle" href="/client/invoices/view" data-toggle="dropdown">Invoices</a>
+			    		<li class="dropdown"><a class="dropdown-toggle" href="/clients/dashboard/invoices/view" data-toggle="dropdown">Invoices</a>
 							<div class="dropdown-menu">
-								<a class="dropdown-item" href="/client/invoices/all">View All Invoices</a>
-						    	<a class="dropdown-item" href="/client/invoices/past">View Past Invoices</a>
-						    	<a class="dropdown-item" href="/client/invoices/pay">Pay Balance</a>
+								<a class="dropdown-item" href="/clients/dashboard/invoices">View All Invoices</a>
+						    	<a class="dropdown-item" href="/clients/dashboard/invoices/past">View Past Invoices</a>
+						    	<a class="dropdown-item" href="/clients/dashboard/invoices/pay">Pay Balance</a>
 						    </div>
 						</li>
 
-						<li class="dropdown"><a href="/client/logout">Logout</a></li>
+						<li class="dropdown"><a href="/clients/logout">Logout</a></li>
 			    	</ul>
 			    @endif
 			</div>
