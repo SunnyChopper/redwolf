@@ -73,6 +73,31 @@
 							</div>
 						</div>
 
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="form-group">
+									<h5 class="mb-2">Payment Method:</h5>
+									<select class="form-control" name="payment_method" form="create_invoice_form">
+										<option value="1">Online Payment</option>
+										<option value="2">Cash</option>
+										<option value="3">Check</option>
+										<option value="4">Bank Transfer</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="form-group">
+									<h5 class="mb-2">Status:</h5>
+									<select class="form-control" name="status" form="create_invoice_form">
+										<option value="0">Unpaid</option>
+										<option value="1">Paid</option>
+										<option value="2">Cancelled</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
 						<div class="row mt-16">
 							<div class="col-12">
 								<input type="submit" value="Create Invoice" class="primary-btn center-button">

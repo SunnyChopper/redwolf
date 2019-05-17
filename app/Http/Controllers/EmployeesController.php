@@ -19,7 +19,7 @@ class EmployeesController extends Controller
         $page_title = "All Employees";
         $page_header = $page_title;
 
-        $employees = EmployeesHelper::viewAllEmployees();
+        $employees = EmployeesHelper::getAllEmployees();
 
         return view('admin.employees.view-all')->with('employees', $employees)->with('page_title', $page_title)->with('page_header', $page_header);
     }
@@ -32,7 +32,7 @@ class EmployeesController extends Controller
         $page_title = "Create New Employee";
         $page_header = $page_title;
 
-        $categories = EmployeesHelper::viewAllEmployeeCategories();
+        $categories = EmployeesHelper::getAllEmployeeCategories();
 
         return view('admin.employees.new')->with('page_title', $page_title)->with('page_header', $page_header)->with('categories', $categories);
     }
@@ -72,7 +72,7 @@ class EmployeesController extends Controller
 
         $employee = Employee::find($employee_id);
 
-        $categories = EmployeesHelper::viewAllEmployeeCategories();
+        $categories = EmployeesHelper::getAllEmployeeCategories();
 
         $page_title = $employee->first_name . " " . $employee->last_name;
         $page_header = $page_title;

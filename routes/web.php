@@ -60,7 +60,12 @@ Route::get('/admin/employee-categories/new', 'EmployeesCategoryController@new');
 Route::post('/admin/employee-categories/create', 'EmployeesCategoryController@create');
 Route::get('/admin/employee-categories/view', 'EmployeesCategoryController@view_all');
 Route::get('/admin/logout', 'AdminController@logout');
+Route::get('/admin/tasks/view', 'AdminController@view_all_tasks');
 Route::get('/admin/tasks/requested', 'AdminController@view_requested_tasks');
+Route::get('/admin/tasks/{task_id}/edit', 'AdminController@edit_task');
+Route::post('/admin/tasks/update', 'AdminController@update_task');
+Route::get('/admin/tasks/new', 'AdminController@new_task');
+Route::post('/admin/tasks/create', 'AdminController@create_task');
 
 // Client functions
 Route::post('/admin/clients/create', 'ClientsController@create');
@@ -80,7 +85,10 @@ Route::get('/clients/dashboard', 'ClientsController@dashboard');
 Route::get('/clients/dashboard/tasks', 'ClientsController@dashboard_view_tasks');
 Route::get('/clients/dashboard/tasks/request', 'ClientsController@dashboard_request_task');
 Route::post('/clients/dashboard/tasks/request/submit', 'ClientsController@dashboard_submit_request');
+Route::get('/clients/dashboard/invoices', 'ClientsController@dashboard_view_invoices');
+Route::get('/clients/dashboard/logs', 'ClientsController@dashboard_view_logs');
 Route::get('/clients/logout', 'ClientsController@client_logout');
+
 
 // User control
 Route::post('/admin/login', 'AdminController@user_login');

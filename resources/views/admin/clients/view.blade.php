@@ -15,6 +15,7 @@
 									<th>First Name</th>
 									<th>Last Name</th>
 									<th>Email</th>
+									<th>Services</th>
 									<th></th>
 								</tr>
 							</thead>
@@ -25,6 +26,28 @@
 										<td>{{ $client->first_name }}</td>
 										<td>{{ $client->last_name }}</td>
 										<td>{{ $client->email }}</td>
+										<td>
+											@if($client->website_dev != 0)
+											Website Development, 
+											@endif
+
+											@if($client->marketing != 0)
+											Marketing, 
+											@endif
+
+											@if($client->branding != 0)
+											Branding, 
+											@endif
+
+											@if($client->content_curation != 0)
+											Content Curation
+											@endif
+
+											@if($client->website_dev == 0 && $client->marketing == 0 && $client->branding == 0 && $client->content_curation == 0)
+											None
+											@endif
+
+										</td>
 										<td style="float: right;">
 											<a href="/admin/clients/edit/{{ $client->id }}" class="genric-btn small primary">Edit</a>
 											{{-- <button type="button" class="genric-btn small danger" id="{{ $client->id }}">Delete</button> --}}

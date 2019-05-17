@@ -15,7 +15,7 @@ class EmployeesCategoryController extends Controller
             return redirect(url('/admin'));
         }
 
-        $categories = EmployeesHelper::viewAllEmployeeCategories();
+        $categories = EmployeesHelper::getAllEmployeeCategories();
 
         $page_title = "All Employee Categories";
         $page_header = $page_title;
@@ -31,7 +31,7 @@ class EmployeesCategoryController extends Controller
         $page_title = "Create New Employee Category";
         $page_header = $page_title;
 
-        $employees = EmployeesHelper::viewAllEmployees();
+        $employees = EmployeesHelper::getAllEmployees();
 
         return view('admin.employee-categories.new')->with('page_title', $page_title)->with('page_header', $page_header)->with('employees', $employees);
 	}

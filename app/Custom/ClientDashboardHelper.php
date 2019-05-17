@@ -7,6 +7,8 @@ use App\Task;
 use App\Charts\SampleChart;
 
 /* ------------------- *\
+	-1. Unapproved
+	0. Deleted
 	1. Scheduled
 	2. Requested
 	3. In Progress
@@ -22,6 +24,10 @@ class ClientDashboardHelper {
 
 	public static function numberRequestedTasks() {
 		return Task::where('status', 2)->count();
+	}
+
+	public static function getUnapprovedTasks() {
+		return Task::where('status', -1)->get();
 	}
 
 	public static function viewRequestedTasks() {

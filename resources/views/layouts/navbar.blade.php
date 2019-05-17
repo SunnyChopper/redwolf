@@ -69,24 +69,17 @@
 						    </div>
 						</li>
 
-						<li class="dropdown"><a href="/client/logs/view">Logs</a></li>
+						<li class="dropdown"><a href="/clients/dashboard/logs">Logs</a></li>
 
-						<li class="dropdown"><a class="dropdown-toggle" href="/clients/dashboard/documents" data-toggle="dropdown">Documents</a>
+					{{-- 	<li class="dropdown"><a class="dropdown-toggle" href="/clients/dashboard/documents" data-toggle="dropdown">Documents</a>
 							<div class="dropdown-menu">
 						    	<a class="dropdown-item" href="/clients/dashboard/documents">View Documents</a>
 						    	<a class="dropdown-item" href="/clients/dashboard/contracts">View Contracts</a>
 						    </div>
-						</li>
+						</li> --}}
 							
 
-			    		<li class="dropdown"><a class="dropdown-toggle" href="/clients/dashboard/invoices/view" data-toggle="dropdown">Invoices</a>
-							<div class="dropdown-menu">
-								<a class="dropdown-item" href="/clients/dashboard/invoices">View All Invoices</a>
-						    	<a class="dropdown-item" href="/clients/dashboard/invoices/past">View Past Invoices</a>
-						    	<a class="dropdown-item" href="/clients/dashboard/invoices/pay">Pay Balance</a>
-						    </div>
-						</li>
-
+			    		<li><a href="/clients/dashboard/invoices">Invoices</a></li>
 						<li class="dropdown"><a href="/clients/logout">Logout</a></li>
 			    	</ul>
 			    @endif

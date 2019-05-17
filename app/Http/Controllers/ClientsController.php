@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Client;
 use App\Task;
+use App\Invoice;
+use App\Log;
 use App\Custom\ClientHelper;
 use App\Custom\ClientDashboardHelper;
 use Illuminate\Support\Facades\Session;
@@ -45,7 +47,7 @@ class ClientsController extends Controller
 
         // Get client
         $client = $this->get_client();
-        $client_id = $client->save();
+        $client_id = $client->id;
 
         $chart = ClientDashboardHelper::getTasksCompletedChart($client_id);
 
@@ -58,7 +60,7 @@ class ClientsController extends Controller
     public function dashboard_view_tasks() {
         // Get client id
         $client = $this->get_client();
-        $client_id = $client->save();
+        $client_id = $client->id;
 
         // Get tasks
         $tasks = ClientDashboardHelper::viewAllForClient($client_id);
@@ -71,7 +73,7 @@ class ClientsController extends Controller
     public function dashboard_request_task() {
         // Get client id
         $client = $this->get_client();
-        $client_id = $client->save();
+        $client_id = $client->id;
 
         $page_title = "Request New Task";
         $page_header = $page_title;
@@ -90,6 +92,32 @@ class ClientsController extends Controller
         $task->save();
 
         return redirect()->back()->with('success', 'Task request submitted.');
+    }
+
+    public function dashboard_view_invoices() {
+        // Get client id
+        $client = $this->get_client();
+        $client_id = $client->id;
+
+        $page_title = "View Invoices";
+        $page_header = $page_title;
+
+        $invoices = Invoice::where('client_id', $client_id)->with('is_active', 1)->get();
+
+        return view('clients.invoices.view')->with('invoices', $invoices)->with('page_title', $page_title)->with('page_header', $page_header);
+    }
+
+    public function dashboard_view_logs() {
+        // Get client id
+        $client = $this->get_client();
+        $client_id = $client->id;
+
+        $page_title = "View Logs";
+        $page_header = $page_title;
+
+        $logs = Log::where('client_id', $client_id)->where('is_active', 1)->get();
+
+        return view('clients.logs.view')->with('logs', $logs)->with('page_title', $page_title)->with('page_header', $page_header);
     }
 
     public function create(Request $data) {
@@ -116,7 +144,15 @@ class ClientsController extends Controller
             "company_name" => $data->company_name,
             "email" => $data->email,
             "first_name" => $data->first_name,
-            "last_name" => $data->last_name
+            "last_name" => $data->last_name,
+            "website_dev" => $data->website_dev,
+            "website_dev_employee_id" => $data->website_dev_employee_id,
+            "marketing" => $data->marketing,
+            "marketing_employee_id" => $data->marketing_employee_id,
+            "branding" => $data->branding,
+            "branding_employee_id" => $data->branding_employee_id,
+            "content_curation" => $data->content_curation,
+            "content_curation_employee_id" => $data->content_curation_employee_id
         );
 
         // Update client

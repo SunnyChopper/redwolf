@@ -14,18 +14,12 @@ class ClientHelper {
 	}
 
 	public function create($data) {
-		// Get data
-		$company_name = $data["company_name"];
-		$first_name = $data["first_name"];
-		$last_name = $data["last_name"];
-		$email = $data["email"];
-
 		// Create client
 		$client = new Client;
-		$client->company_name = $company_name;
-		$client->first_name = $first_name;
-		$client->last_name = $last_name;
-		$client->email = $email;
+		$client->company_name = $data["company_name"];
+		$client->first_name = $data["first_name"];
+		$client->last_name = $data["last_name"];
+		$client->email = $data["email"];
 		$client->save();
 
 		$this->id = $client->id;
@@ -42,19 +36,19 @@ class ClientHelper {
 	}
 
 	public function update($data) {
-		// Get data
-		$id = $data["client_id"];
-		$company_name = $data["company_name"];
-		$first_name = $data["first_name"];
-		$last_name = $data["last_name"];
-		$email = $data["email"];
-
-		// Create client
-		$client = Client::find($id);
-		$client->company_name = $company_name;
-		$client->first_name = $first_name;
-		$client->last_name = $last_name;
-		$client->email = $email;
+		$client = Client::find($data["client_id"]);
+		$client->company_name = $data["company_name"];
+		$client->first_name = $data["first_name"];
+		$client->last_name = $data["last_name"];
+		$client->email = $data["email"];
+		$client->website_dev = $data["website_dev"];
+		$client->website_dev_employee_id = $data["website_dev_employee_id"];
+		$client->marketing = $data["marketing"];
+		$client->marketing_employee_id = $data["marketing_employee_id"];
+		$client->branding = $data["branding"];
+		$client->branding_employee_id = $data["branding_employee_id"];
+		$client->content_curation = $data["content_curation"];
+		$client->content_curation_employee_id = $data["content_curation_employee_id"];
 		$client->save();
 	}
 
@@ -62,15 +56,14 @@ class ClientHelper {
 	// public function delete() {}
 
 	public function get_all_clients() {
-		// TODO: Update with `is_active` field
-		return Client::all();
+		return Client::where('lock', 0)->get();
 	}
 
 	public function set_id($id) {
 		$this->id = $id;
 	}
 
-	public function get_company_name($id = 0) {
+	public static function get_company_name($id = 0) {
 		if ($id == 0) {
 			$id = $this->id;
 		}

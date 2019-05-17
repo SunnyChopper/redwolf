@@ -7,19 +7,19 @@ use App\EmployeeCategory;
 
 class EmployeesHelper {
 	
-	public static function viewAllEmployees() {
+	public static function getAllEmployees() {
 		return Employee::where('is_active', 1)->get();
 	}
 
-	public static function viewAllEmployeeCategories() {
+	public static function getAllEmployeeCategories() {
 		return EmployeeCategory::where('is_active', 1)->get();
 	}
 
-	public static function viewEmployeesInCategory($category_id) {
+	public static function getEmployeesInCategory($category_id) {
 		return Employee::where('category_id', $category_id)->where('is_active', 1)->get();
 	}
 
-	public static function viewEmployeesWithTitle($title) {
+	public static function getEmployeesWithTitle($title) {
 		return Employee::where('title', 'LIKE', '%'.$title.'%')->where('is_active', 1)->get();
 	}
 

@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Auth;
 
 use App\User;
+use App\Task;
 
 use App\Custom\AdminHelper;
 use App\Custom\ClientHelper;
 use App\Custom\InvoiceHelper;
+use App\Custom\EmployeesHelper;
 use App\Custom\ClientDashboardHelper;
 
 use Illuminate\Http\Request;
@@ -71,11 +73,65 @@ class AdminController extends Controller
     	}
     }
 
+    public function new_task() {
+        if($this->protect() != 1) {
+            return redirect(url('/admin'));
+        }
+
+        $page_title = "New Task";
+        $page_header = $page_title;
+
+        $client_helper = new ClientHelper;
+        $clients = $client_helper->get_all_clients();
+
+        return view('admin.tasks.new')->with('page_title', $page_title)->with('page_header', $page_header)->with('clients', $clients);
+    }
+
+    public function create_task(Request $data) {
+        $task = new Task;
+        $task->client_id = $data->client_id;
+        $task->title = $data->title;
+        $task->description = $data->description;
+        $task->due_date = $data->due_date;
+        $task->status = $data->status;
+        $task->notes = $data->notes;
+        $task->category_id = 0;
+        $task->save();
+
+        return redirect(url('/admin/tasks/view'));
+    }
+
+    public function view_all_tasks() {
+        $tasks = Task::where('status', '>', 0)->get();
+        $page_title = "All Tasks";
+        $page_header = $page_title;
+        return view('admin.tasks.view')->with('page_title', $page_title)->with('page_header', $page_header)->with('tasks', $tasks);
+    }
+
     public function view_requested_tasks() {
         $tasks = ClientDashboardHelper::viewRequestedTasks();
         $page_title = "Requested Tasks";
         $page_header = $page_title;
         return view('admin.tasks.requested')->with('tasks', $tasks)->with('page_title', $page_title)->with('page_header', $page_header);
+    }
+
+    public function edit_task($task_id) {
+        $task = Task::find($task_id);
+        $page_title = "Edit Task";
+        $page_header = $page_title;
+        return view('admin.tasks.edit')->with('task', $task)->With('page_title', $page_title)->with('page_header', $page_header);
+    }
+
+    public function update_task(Request $data) {
+        $task = Task::find($data->task_id);
+        $task->title = $data->title;
+        $task->description = $data->description;
+        $task->due_date = $data->due_date;
+        $task->status = $data->status;
+        $task->notes = $data->notes;
+        $task->save();
+
+        return redirect(url('/admin/tasks/view'));
     }
 
     public function dashboard() {
@@ -122,7 +178,9 @@ class AdminController extends Controller
         $client_helper = new ClientHelper($client_id);
         $client = $client_helper->read();
 
-        return view('admin.clients.edit')->with('page_title', $page_title)->with('page_header', $page_header)->with('client', $client);
+        $employees = EmployeesHelper::getAllEmployees();
+
+        return view('admin.clients.edit')->with('page_title', $page_title)->with('page_header', $page_header)->with('client', $client)->with('employees', $employees);
     }
 
     public function new_client() {
