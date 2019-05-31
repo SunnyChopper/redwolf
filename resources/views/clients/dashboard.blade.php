@@ -21,8 +21,8 @@
 					<a href="/clients/dashboard/invoices" class="primary-btn text-center mt-8 mb-8" style="width: 100%;">View Invoices</a>
 					<hr />
 					<h5 class="mb-2"><strong>Your Representative:</strong></h5>
-					<p class="mb-0"><strong>Name: </strong>Sunny Singh</p>
-					<p class="mb-0"><strong>Email:</strong> <a href="mailto:sunny@redwolfent.com">sunny@redwolfent.com</a></p>
+					<p class="mb-0"><strong>Name: </strong>{{ \App\Custom\EmployeesHelper::getEmployeeName($client->rep_id) }}</p>
+					<p class="mb-0"><strong>Email:</strong> <a href="mailto:{{ \App\Custom\EmployeesHelper::getEmail($client->rep_id) }}">{{ \App\Custom\EmployeesHelper::getEmail($client->rep_id) }}</a></p>
 				</div>
 			</div>
 		</div>

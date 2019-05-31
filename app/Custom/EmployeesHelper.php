@@ -28,6 +28,10 @@ class EmployeesHelper {
 		return $cat->title;
 	}
 
+	public static function getEmail($employee_id) {
+		return Employee::find($employee_id)->email;
+	}
+
 	public static function getEmployeeName($employee_id) {
 		$e = Employee::find($employee_id);
 		return $e->first_name . " " . $e->last_name;
