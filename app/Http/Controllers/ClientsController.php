@@ -126,7 +126,8 @@ class ClientsController extends Controller
     		"company_name" => $data->company_name,
     		"email" => strtolower($data->email),
     		"first_name" => $data->first_name,
-    		"last_name" => $data->last_name
+    		"last_name" => $data->last_name,
+            "rep_id" => $data->rep_id
     	);
 
     	// Create client
@@ -145,6 +146,7 @@ class ClientsController extends Controller
             "email" => $data->email,
             "first_name" => $data->first_name,
             "last_name" => $data->last_name,
+            "rep_id" => $data->rep_id,
             "website_dev" => $data->website_dev,
             "website_dev_employee_id" => $data->website_dev_employee_id,
             "marketing" => $data->marketing,

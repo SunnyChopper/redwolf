@@ -20,6 +20,7 @@ class ClientHelper {
 		$client->first_name = $data["first_name"];
 		$client->last_name = $data["last_name"];
 		$client->email = $data["email"];
+		$client->rep_id = $data["rep_id"];
 		$client->save();
 
 		$this->id = $client->id;
@@ -41,6 +42,7 @@ class ClientHelper {
 		$client->first_name = $data["first_name"];
 		$client->last_name = $data["last_name"];
 		$client->email = $data["email"];
+		$client->rep_id = $data["rep_id"];
 		$client->website_dev = $data["website_dev"];
 		$client->website_dev_employee_id = $data["website_dev_employee_id"];
 		$client->marketing = $data["marketing"];

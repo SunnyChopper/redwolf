@@ -7,7 +7,7 @@
 		<div class="row">
 			<div class="col-lg-8 mx-lg-auto col-md-8 mx-md-auto col-sm-12 col-12">
 				<div class="grey-box">
-					<form action="/admin/clients/create" method="POST">
+					<form id="create_client_form" action="/admin/clients/create" method="POST">
 						{{ csrf_field() }}
 						<div class="row">
 							<div class="col-12">
@@ -39,6 +39,19 @@
 								<div class="form-group">
 									<h5 class="mb-2">Contact Last Name:</h5>
 									<input type="text" name="last_name" class="form-control" required>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-lg-8 col-md-8 col-sm-12 col-12">
+								<div class="form-group">
+									<h5 class="mb-2">Main Representative:</h5>
+									<select name="rep_id" form="create_client_form">
+										@foreach($employees as $e)
+											<option value="{{ $e->id }}">{{ $e->first_name }} {{ $e->last_name }}</option>
+										@endforeach
+									</select>
 								</div>
 							</div>
 						</div>

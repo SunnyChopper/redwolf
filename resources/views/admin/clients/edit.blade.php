@@ -49,6 +49,22 @@
 
 						<div class="row">
 							<div class="col-12">
+								<h5 class="mb-0">Main Representative:</h5>
+							</div>
+
+							<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+								<div class="form-group">
+									<select name="rep_id" form="update_client_form" class="form-control">
+										@foreach($employees as $e)
+										<option value="{{ $e->id }}" <?php if ($e->id == $client->rep_id) { echo "selected"; } ?>>{{ $e->first_name }} {{ $e->last_name }}</option>
+										@endforeach
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-12">
 								<h5 class="mb-0">Website Development:</h5>
 							</div>
 

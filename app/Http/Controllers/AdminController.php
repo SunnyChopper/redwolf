@@ -193,7 +193,11 @@ class AdminController extends Controller
             return redirect(url('/admin'));
         }
 
-        return view('admin.clients.new')->with('page_title', $page_title)->with('page_header', $page_header);
+
+        // Get all employees
+        $employees = EmployeesHelper::getAllEmployees();
+
+        return view('admin.clients.new')->with('page_title', $page_title)->with('page_header', $page_header)->with('employees', $employees);
     }
 
     public function view_invoices() {
