@@ -49,7 +49,7 @@
 
 						<div class="row">
 							<div class="col-12">
-								<h5 class="mb-0">Main Representative:</h5>
+								<h5 class="mb-2">Main Representative:</h5>
 							</div>
 
 							<div class="col-lg-6 col-md-6 col-sm-12 col-12">
