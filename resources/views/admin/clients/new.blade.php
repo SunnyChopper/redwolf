@@ -47,7 +47,7 @@
 							<div class="col-lg-8 col-md-8 col-sm-12 col-12">
 								<div class="form-group">
 									<h5 class="mb-2">Main Representative:</h5>
-									<select name="rep_id" form="create_client_form">
+									<select name="rep_id" form="create_client_form" class="form-control">
 										@foreach($employees as $e)
 											<option value="{{ $e->id }}">{{ $e->first_name }} {{ $e->last_name }}</option>
 										@endforeach
