@@ -32,7 +32,7 @@
 			<div class="col-lg-7 col-md-8 col-sm-12 col-12">
 				<div class="grey-box">
 					<h3 class="text-center">No Tasks Requested</h3>
-					<p class="text-center">There are currently no tasks requested.</p>
+					<p class="text-center mb-0">There are currently no tasks requested.</p>
 				</div>
 			</div>
 			@endif

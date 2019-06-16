@@ -11,6 +11,17 @@ use App\Employee;
 class EmployeesController extends Controller
 {
 
+    public function login() {
+        if (EmployeesHelper::isAuth() == true) {
+            return redirect(url('/employees/dashboard'));
+        }
+
+        $page_title = "Employees Login";
+        $page_header = $page_title;
+
+        return view('employees.login')->with('page_title', $page_title)->with('page_header', $page_header);
+    }
+
     public function view_all() {
         if (AdminHelper::isAdmin() == false) {
             return redirect(url('/admin'));

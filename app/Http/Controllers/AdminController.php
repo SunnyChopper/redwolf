@@ -7,6 +7,7 @@ use Auth;
 use App\User;
 use App\Task;
 
+use App\Custom\TasksHelper;
 use App\Custom\AdminHelper;
 use App\Custom\ClientHelper;
 use App\Custom\InvoiceHelper;
@@ -144,7 +145,24 @@ class AdminController extends Controller
             return redirect(url('/admin'));
         }
 
-        return view('admin.dashboard')->with('page_title', $page_title)->with('page_header', $page_header);
+        // Get upcoming tasks
+        $tasks = TasksHelper::getUpcomingTasks();
+        $past_tasks = TasksHelper::getPastTasks();
+
+        return view('admin.dashboard')->with('tasks', $tasks)->with('past_tasks', $past_tasks)->with('page_title', $page_title)->with('page_header', $page_header);
+    }
+
+    public function settings() {
+        if($this->protect() != 1) {
+            return redirect(url('/admin'));
+        }
+
+        $page_title = "Edit Admin Settings";
+        $page_header = $page_title;
+
+        $user = Auth::user();
+
+        return view('admin.settings')->with('page_title', $page_title)->with('page_header', $page_header)->with('user', $user);
     }
 
     public function view_clients() {
@@ -214,10 +232,7 @@ class AdminController extends Controller
         $invoice_helper = new InvoiceHelper();
         $invoices = $invoice_helper->get_all_invoices();
 
-        // Client helper for page
-        $client_helper = new ClientHelper();
-
-        return view('admin.invoices.view')->with('page_title', $page_title)->with('page_header', $page_header)->with('invoices', $invoices)->with('client_helper', $client_helper);
+        return view('admin.invoices.view')->with('page_title', $page_title)->with('page_header', $page_header)->with('invoices', $invoices);
     }
 
     public function edit_invoice($invoice_id) {

@@ -44,28 +44,44 @@ Route::get('/thank-you', 'PagesController@thank_you');
 // Admin site
 Route::get('/admin', 'AdminController@login');
 Route::get('/admin/dashboard', 'AdminController@dashboard');
+Route::get('/admin/logout', 'AdminController@logout');
+Route::get('/admin/settings', 'AdminController@settings');
+
+// Admin client functions
 Route::get('/admin/clients/view', 'AdminController@view_clients');
 Route::get('/admin/clients/edit/{client_id}', 'AdminController@edit_client');
 Route::get('/admin/clients/new', 'AdminController@new_client');
+
+// Admin invoice functions
 Route::get('/admin/invoices/view', 'AdminController@view_invoices');
 Route::get('/admin/invoices/edit/{invoice_id}', 'AdminController@edit_invoice');
 Route::get('/admin/invoices/new', 'AdminController@new_invoice');
+
+// Admin employee functions
 Route::get('/admin/employees/view', 'EmployeesController@view_all');
 Route::get('/admin/employees/new', 'EmployeesController@new');
 Route::post('/admin/employees/create', 'EmployeesController@create');
 Route::get('/admin/employees/edit/{employee_id}', 'EmployeesController@edit');
 Route::post('/admin/employees/update', 'EmployeesController@update');
 Route::post('/admin/employees/delete', 'EmployeesController@delete');
+
+// Admin employee categories
 Route::get('/admin/employee-categories/new', 'EmployeesCategoryController@new');
 Route::post('/admin/employee-categories/create', 'EmployeesCategoryController@create');
 Route::get('/admin/employee-categories/view', 'EmployeesCategoryController@view_all');
-Route::get('/admin/logout', 'AdminController@logout');
+Route::get('/admin/employee-categories/edit/{category_id}', 'EmployeesCategoryController@edit');
+Route::post('/admin/employee-categories/update', 'EmployeesCategoryController@update');
+
+// Admin tasks categories
 Route::get('/admin/tasks/view', 'AdminController@view_all_tasks');
 Route::get('/admin/tasks/requested', 'AdminController@view_requested_tasks');
 Route::get('/admin/tasks/{task_id}/edit', 'AdminController@edit_task');
 Route::post('/admin/tasks/update', 'AdminController@update_task');
 Route::get('/admin/tasks/new', 'AdminController@new_task');
 Route::post('/admin/tasks/create', 'AdminController@create_task');
+
+// Employee site
+Route::get('/employee', 'EmployeesController@login');
 
 // Client functions
 Route::post('/admin/clients/create', 'ClientsController@create');

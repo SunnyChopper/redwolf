@@ -14,7 +14,7 @@
 							<div class="col-12">
 								<div class="form-group">
 									<h5 class="mb-2">Company:</h5>
-									<input type="text" value="{{ $client_helper->get_company_name() }}" class="form-control" disabled required>
+									<input type="text" value="{{ \App\Custom\ClientHelper::get_company_name($invoice->client_id) }}" class="form-control" disabled required>
 								</div>
 							</div>
 						</div>

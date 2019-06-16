@@ -2,6 +2,7 @@
 
 @section('content')
 	@include('layouts.banner')
+	@include('admin.employees.modals.delete')
 
 	<div class="container pt-64 pb-64">
 		<div class="row justify-content-center">
@@ -21,13 +22,13 @@
 						<tbody>
 							@foreach($employees as $e)
 							<tr>
-								<td>{{ $e->first_name }}</td>
-								<td>{{ $e->last_name }}</td>
-								<td>{{ $e->email }}</td>
-								<td>{{ \App\Custom\EmployeesHelper::getCategoryTitle($e->category_id) }}</td>
-								<td>
-									<a href="/admin/employees/edit/{{ $e->id }}" class="btn btn-primary">Edit</a>
-									<button class="btn btn-danger" class="delete_employee_button" id="{{ $e->id }}">Delete</button>
+								<td style="vertical-align: middle;">{{ $e->first_name }}</td>
+								<td style="vertical-align: middle;">{{ $e->last_name }}</td>
+								<td style="vertical-align: middle;">{{ $e->email }}</td>
+								<td style="vertical-align: middle;">{{ \App\Custom\EmployeesHelper::getCategoryTitle($e->category_id) }}</td>
+								<td style="vertical-align: middle;">
+									<a href="/admin/employees/edit/{{ $e->id }}" class="genric-btn info small rounded m-2" style="float: right;">Edit</a>
+									<button class="genric-btn danger small rounded delete_employee_button m-2" id="{{ $e->id }}" style="float: right;">Delete</button>
 								</td>
 							</tr>
 							@endforeach
@@ -46,4 +47,15 @@
 			@endif
 		</div>
 	</div>
+@endsection
+
+@section('page_js')
+	<script type="text/javascript">
+		$(".delete_employee_button").on('click', function() {
+			var button = $(this);
+			var employee_id = button.attr('id');
+			$("#delete_employee_id").val(employee_id);
+			$("#delete_employee_modal").modal();
+		});
+	</script>
 @endsection

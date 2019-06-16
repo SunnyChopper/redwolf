@@ -19,21 +19,21 @@
 						<tbody>
 							@foreach($categories as $c)
 							<tr>
-								<td>{{ $c->title }}</td>
+								<td style="vertical-align: middle;">{{ $c->title }}</td>
 								@if($c->head_employee_id != NULL)
-								<td>{{ \App\Custom\EmployeesHelper::getEmployeeName($c->head_employee_id) }}</td>
+									<td style="vertical-align: middle;">{{ \App\Custom\EmployeesHelper::getEmployeeName($c->head_employee_id) }}</td>
 								@else
-								<td>N/A</td>
+									<td style="vertical-align: middle;">N/A</td>
 								@endif
 
 								@if($c->description != NULL)
-								<td>{{ $c->description }}</td>
+									<td style="vertical-align: middle;">{{ $c->description }}</td>
 								@else
-								<td>N/A</td>
+									<td style="vertical-align: middle;">N/A</td>
 								@endif
-								<td>
-									<a href="/admin/employee-categories/edit/{{ $c->id }}" class="btn btn-warning">Edit</a>
-									<button class="btn btn-danger" class="delete_category_button" id="{{ $c->id }}">Delete</button>
+								<td style="vertical-align: middle;">
+									<a href="/admin/employee-categories/edit/{{ $c->id }}" class="genric-btn info rounded small m-2" style="float: right;">Edit</a>
+									<button class="genric-btn danger small rounded delete_category_button m-2" style="float: right;" id="{{ $c->id }}">Delete</button>
 								</td>
 							</tr>
 							@endforeach

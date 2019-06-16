@@ -21,9 +21,8 @@
 							</thead>
 							<tbody>
 								@foreach($invoices as $invoice)
-									<?php $client_helper->set_id($invoice->client_id); ?>
 									<tr>
-										<td>{{ $client_helper->get_company_name() }}</td>
+										<td>{{ \App\Custom\ClientHelper::get_company_name($invoice->client_id) }}</td>
 										<td>${{ $invoice->amount }}</td>
 										<td>{{ $invoice->due_date }}</td>
 										<td>

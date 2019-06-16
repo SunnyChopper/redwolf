@@ -59,11 +59,12 @@ class EmployeesCategoryController extends Controller
         }
 
         $category = EmployeeCategory::find($category_id);
+        $employees = EmployeesHelper::getAllEmployees();
 
         $page_title = "Edit " . $category->title;
         $page_header = $page_title;
 
-        return view('admin.employee-categories.edit')->with('page_title', $page_title)->with('page_header', $page_header)->with('category', $category);
+        return view('admin.employee-categories.edit')->with('page_title', $page_title)->with('page_header', $page_header)->with('category', $category)->with('employees', $employees);
     }
 
     public function update(Request $data) {

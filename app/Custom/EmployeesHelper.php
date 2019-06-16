@@ -1,11 +1,23 @@
 <?php
 
 namespace App\Custom;
+
 use Carbon\Carbon;
+
+use Illuminate\Support\Facades\Session;
+
 use App\Employee;
 use App\EmployeeCategory;
 
 class EmployeesHelper {
+
+	public static function isAuth() {
+		if (Session::has('employee_id')) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 	public static function getAllEmployees() {
 		return Employee::where('is_active', 1)->get();

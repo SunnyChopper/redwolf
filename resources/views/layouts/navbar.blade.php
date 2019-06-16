@@ -45,9 +45,8 @@
 							<li class="dropdown"><a class="dropdown-toggle" href="/admin/employees/view" data-toggle="dropdown">Tasks</a>
 								<div class="dropdown-menu">
 							    	<a class="dropdown-item" href="/admin/tasks/requested">View Requested <span class="badge badge-primary ml-2">{{ App\Custom\ClientDashboardHelper::numberRequestedTasks() }}</span></a>
-							    	<a class="dropdown-item" href="/admin/employees/new">New Employee</a>
-							    	<a class="dropdown-item" href="/admin/employee-categories/view">View Categories</a>
-							    	<a class="dropdown-item" href="/admin/employee-categories/new">New Category</a>
+							    	<a class="dropdown-item" href="/admin/tasks/view">View Tasks</a>
+							    	<a class="dropdown-item" href="/admin/tasks/new">New Task</a>
 							    </div>
 							</li>
 							<li class="dropdown"><a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">{{ Auth::user()->first_name }}</a>
