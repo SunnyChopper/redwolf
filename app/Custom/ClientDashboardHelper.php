@@ -45,14 +45,16 @@ class ClientDashboardHelper {
 	public static function getTasksCompletedChart($client_id) {
 		// Get completed tasks
 		$tasks_array = array();
-		for ($i = 0; $i < 7; $i++) {
-			$tasks = Task::where('status', 5)->where('client_id', $client_id)->where('completed_time', Carbon::today()->subDays($i))->count();
-			$tasks_array[$i] = $tasks;
+		$dates_array = array();
+		for ($i = 7; $i >= 0; $i--) {
+			array_push($dates_array, Carbon::today()->subDays($i)->format('M jS, Y'));
+			$tasks = Task::where('status', 5)->where('client_id', $client_id)->whereDate('completed_time', '=', Carbon::today()->subDays($i))->count();
+			array_push($tasks_array, $tasks);
 		}
 
 		// Create basic chart
         $chart = new SampleChart;
-        $chart->labels([Carbon::today()->subDays(7)->format('M jS, Y'), Carbon::today()->subDays(6)->format('M jS, Y'), Carbon::today()->subDays(5)->format('M jS, Y'), Carbon::today()->subDays(4)->format('M jS, Y'), Carbon::today()->subDays(3)->format('M jS, Y'), Carbon::today()->subDays(2)->format('M jS, Y'), Carbon::today()->subDays(1)->format('M jS, Y'), Carbon::today()->format('M jS, Y')]);
+        $chart->labels($dates_array);
 
         // Set dataset
         $chart->dataset('Tasks Completed', 'line', $tasks_array)->options([

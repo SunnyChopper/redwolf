@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use Carbon\Carbon;
 
 use App\User;
 use App\Task;
@@ -129,6 +130,9 @@ class AdminController extends Controller
         $task->description = $data->description;
         $task->due_date = $data->due_date;
         $task->status = $data->status;
+        if($data->status == 5) {
+            $task->completed_time = Carbon::now();
+        }
         $task->notes = $data->notes;
         $task->save();
 

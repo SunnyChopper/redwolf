@@ -102,7 +102,7 @@ class ClientsController extends Controller
         $page_title = "View Invoices";
         $page_header = $page_title;
 
-        $invoices = Invoice::where('client_id', $client_id)->with('is_active', 1)->get();
+        $invoices = Invoice::where('client_id', $client_id)->get();
 
         return view('clients.invoices.view')->with('invoices', $invoices)->with('page_title', $page_title)->with('page_header', $page_header);
     }

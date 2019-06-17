@@ -36,16 +36,13 @@
 					<div class="grey-box">
 						<h3 class="text-center mb-2">Employees Login Portal</h3>
 						<p class="text-center mb-16">If it is your first time logging in, simply input your work email and you will be prompted to create your password.</p>
-						<form action="/employees/login/attempt" method="POST">
+						<form action="/employees/password/update" method="POST">
 							{{ csrf_field() }}
-							<div class="form-group">
-								<label>Email:</label>
-								<input type="email" class="form-control" name="email" required>
-							</div>
+							<input type="hidden" name="employee_id" value="{{ $employee->id }}">
 
 							<div class="form-group">
 								<label>Password:</label>
-								<input type="password" class="form-control" name="password">
+								<input type="password" class="form-control" name="password" required>
 							</div>
 
 							@if(session()->has('error'))
@@ -55,7 +52,7 @@
 							@endif
 
 							<div class="form-group">
-								<input type="submit" class="primary-btn centered" value="Login">
+								<input type="submit" class="primary-btn centered" value="Set Password">
 							</div>
 						</form>
 					</div>

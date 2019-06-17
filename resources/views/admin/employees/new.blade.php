@@ -16,7 +16,7 @@
 								<input type="text" name="first_name" class="form-control" required>
 							</div>
 
-							<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+							<div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-16-mobile">
 								<label>Last Name<span class="red">*</span>:</label>
 								<input type="text" name="last_name" class="form-control" required>
 							</div>
@@ -26,7 +26,6 @@
 							<div class="col-12">
 								<label>Category<span class="red">*</span>:</label>
 								<select form="create_employee_form" class="form-control" name="category_id">
-									<option value=""></option>
 									@foreach($categories as $c)
 									<option value="{{ $c->id }}">{{ $c->title }}</option>
 									@endforeach
@@ -35,14 +34,9 @@
 						</div>
 
 						<div class="form-group row">
-							<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+							<div class="col-12">
 								<label>Email<span class="red">*</span>:</label>
 								<input type="email" name="email" class="form-control" required>
-							</div>
-
-							<div class="col-lg-6 col-md-6 col-sm-12 col-12">
-								<label>Password<span class="red">*</span>:</label>
-								<input type="password" name="password" class="form-control" required>
 							</div>
 						</div>
 
@@ -52,7 +46,7 @@
 								<input type="text" name="phone" class="form-control">
 							</div>
 
-							<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+							<div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-16-mobile">
 								<label>Title:</label>
 								<input type="text" name="title" class="form-control">
 							</div>
@@ -60,7 +54,7 @@
 
 						<div class="form-group row">
 							<div class="col-12">
-								<input type="submit" class="btn btn-primary centered" value="Create Employee">
+								<input type="submit" class="genric-btn primary rounded centered mt-16" style="font-size: 15px;" value="Create Employee">
 							</div>
 						</div>
 					</form>

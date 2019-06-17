@@ -82,6 +82,11 @@ Route::post('/admin/tasks/create', 'AdminController@create_task');
 
 // Employee site
 Route::get('/employee', 'EmployeesController@login');
+Route::post('/employees/login/attempt', 'EmployeesController@attempt_login');
+Route::get('/employee/password/set', 'EmployeesController@set_password');
+Route::post('/employees/password/update', 'EmployeesController@update_password');
+Route::get('/employee/dashboard', 'EmployeesController@dashboard');
+Route::get('/employee/logout', 'EmployeesController@logout');
 
 // Client functions
 Route::post('/admin/clients/create', 'ClientsController@create');

@@ -10,7 +10,7 @@
 			</button>
 
 			<div class="collapse navbar-collapse justify-content-end align-items-center" id="navbar_menu">
-				@if(Auth::guest() && (Session::has('active_client_id') == false))
+				@if(Auth::guest() && (Session::has('active_client_id') == false) && (\App\Custom\EmployeesHelper::isAuth() == false))
 				  	<ul class="navbar-nav">
 						<li><a href="/">Home</a></li>
 						<li><a href="/mission">Our Mission</a></li>
@@ -81,6 +81,22 @@
 			    		<li><a href="/clients/dashboard/invoices">Invoices</a></li>
 						<li class="dropdown"><a href="/clients/logout">Logout</a></li>
 			    	</ul>
+			    @elseif(\App\Custom\EmployeesHelper::isAuth() == true)
+			    	<ul class="navbar-nav">
+						<li><a href="/employee/dashboard">Dashboard</a></li>
+						<li class="dropdown"><a class="dropdown-toggle" href="/admin/employees/view" data-toggle="dropdown">Tasks</a>
+							<div class="dropdown-menu">
+						    	<a class="dropdown-item" href="/admin/tasks/requested">View Requested <span class="badge badge-primary ml-2">{{ App\Custom\ClientDashboardHelper::numberRequestedTasks() }}</span></a>
+						    	<a class="dropdown-item" href="/admin/tasks/view">View Tasks</a>
+						    	<a class="dropdown-item" href="/admin/tasks/new">New Task</a>
+						    </div>
+						</li>
+						<li class="dropdown"><a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">{{ \App\Custom\EmployeesHelper::getLoggedInEmployeeFirstName() }}</a>
+							<div class="dropdown-menu">
+						    	<a class="dropdown-item" href="/employee/logout">Logout</a>
+						    </div>
+						</li>	
+				    </ul>
 			    @endif
 			</div>
 		</div>

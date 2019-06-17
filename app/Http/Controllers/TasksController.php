@@ -37,6 +37,9 @@ class TasksController extends Controller
     	$task->due_date = $data->due_date;
     	if (isset($data->status)) {
     		$task->status = $data->status;
+            if($data->status == 5) {
+                $task->completed_time = Carbon::now();
+            }
     	}
     	$task->save();
 

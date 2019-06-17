@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+
 use Illuminate\Http\Request;
+
+use App\Custom\TasksHelper;
 use App\Custom\AdminHelper;
 use App\Custom\EmployeesHelper;
 use App\Employee;
@@ -20,6 +24,66 @@ class EmployeesController extends Controller
         $page_header = $page_title;
 
         return view('employees.login')->with('page_title', $page_title)->with('page_header', $page_header);
+    }
+
+    public function attempt_login(Request $data) {
+        if (Employee::where('email', strtolower($data->email))->count() > 0) {
+            $employee = Employee::where('email', strtolower($data->email))->first();
+            if ($employee->is_active == 2) {
+                Session::put('employee_id', $employee->id);
+                Session::save();
+                return redirect(url('/employee/password/set'));
+            } else {
+                if (Hash::check($data->password, $employee->password)) {
+                    Session::put('employee_id', $employee->id);
+                    Session::save();
+                    return redirect(url('/employee/dashboard'));
+                } else {
+                    return redirect()->back()->with('error', 'Password is incorrect.');
+                }
+            }
+        } else {
+            return redirect()->back()->with('error', 'No account associated with that email.');
+        }
+    }
+
+    public function set_password() {
+        $employee = Employee::find(Session::get('employee_id'));
+
+        $page_title = "Set Password";
+
+        return view('employees.set-password')->with('page_title', $page_title)->with('employee', $employee);
+    }
+
+    public function update_password(Request $data) {
+        $employee = Employee::find(Session::get('employee_id'));
+        $employee->password = Hash::make($data->password);
+        $employee->is_active = 1;
+        $employee->save();
+
+        return redirect(url('/employee/dashboard'));
+    }
+
+    public function dashboard() {
+        if (EmployeesHelper::isAuth() == false) {
+            return redirect(url('/employee'));
+        }
+
+        $employee = Employee::find(Session::get('employee_id'));
+        $tasks = TasksHelper::getUpcomingTasks();
+        $past_tasks = TasksHelper::getPastTasks();
+
+        $page_title = "Employee Dashboard";
+        $page_header = $page_title;
+
+        return view('employees.dashboard')->with('page_title', $page_title)->with('page_header', $page_header)->with('employee', $employee)->with('tasks', $tasks)->with('past_tasks', $past_tasks);
+    }
+
+    public function logout() {
+        Session::forget('employee_id');
+        Session::save();
+
+        return redirect(url('/'));
     }
 
     public function view_all() {

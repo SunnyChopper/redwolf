@@ -18,9 +18,13 @@ class EmployeesHelper {
 			return false;
 		}
 	}
+
+	public static function getLoggedInEmployeeFirstName() {
+		return Employee::find(Session::get('employee_id'))->first_name;
+	}
 	
 	public static function getAllEmployees() {
-		return Employee::where('is_active', 1)->get();
+		return Employee::where('is_active', '!=', 0)->get();
 	}
 
 	public static function getAllEmployeeCategories() {

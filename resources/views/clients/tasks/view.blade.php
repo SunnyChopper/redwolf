@@ -7,7 +7,6 @@
 		<div class="row justify-content-center">
 			@if(count($tasks) > 0)
 			<div class="col-12">
-				<a href="/clients/dashboard/tasks/request" class="primary-btn">Request New Task</a>
 				<table class="table table-striped mt-32">
 					<thead>
 						<tr>
@@ -41,7 +40,7 @@
 					</tbody>
 				</table>
 
-
+				<a href="/clients/dashboard/tasks/request" class="genric-btn primary centered rounded" style="font-size: 14px;">Request New Task</a>
 			</div>
 			@else
 			<div class="col-lg-7 col-m-d-8 col-sm-12 col-12">

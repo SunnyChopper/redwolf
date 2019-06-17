@@ -16,15 +16,16 @@
 									<th>Client</th>
 									<th>Due Date</th>
 									<th>Status</th>
+									<th></th>
 								</tr>
 							</thead>
 							<tbody>
 								@foreach($tasks as $task)
 								<tr>
-									<td>{{ $task->title }}</td>
-									<td>{{ \App\Custom\ClientHelper::get_company_name($task->client_id) }}</td>
-									<td>{{ Carbon\Carbon::parse($task->due_date)->format('M jS, Y') }}</td>
-									<td>
+									<td style="vertical-align: middle;">{{ $task->title }}</td>
+									<td style="vertical-align: middle;">{{ \App\Custom\ClientHelper::get_company_name($task->client_id) }}</td>
+									<td style="vertical-align: middle;">{{ Carbon\Carbon::parse($task->due_date)->format('M jS, Y') }}</td>
+									<td style="vertical-align: middle;">
 										@if($task->status == 1)
 										Scheduled
 										@elseif($task->status == 2)
@@ -36,6 +37,9 @@
 										@else
 										Done
 										@endif
+									</td>
+									<td style="vertical-align: middle;"> 
+										<a href="{{ url('/admin/tasks/' . $task->id . '/edit') }}" class="genric-btn info rounded small">Edit</a>
 									</td>
 								</tr>
 								@endforeach
@@ -55,8 +59,6 @@
 				<div class="grey-box">
 					<h3 class="text-center">Quick Actions</h3>
 					<hr />
-					<a href="/admin/clients/new" class="primary-btn center-button mt-16 mb-16">Create New Client</a>
-					<a href="/admin/invoices/new" class="primary-btn center-button mt-16 mb-16">Create New Invoice</a>
 					<a href="{{ url('/admin/tasks/new') }}" class="primary-btn center-button mt-16 mb-0">Create New Task</a>
 				</div>
 			</div>
